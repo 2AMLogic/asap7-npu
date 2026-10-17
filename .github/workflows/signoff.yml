@@ -1,0 +1,75 @@
+# .github/workflows/signoff.yml
+#
+# Re-grade this block's gap-to-T1 state from the committed signoff manifest --
+# the "CI re-runs it" leg of the manifest's rot protection (T1 item 10).
+#
+# `klt signoff --manifest` is re-run and its output compared against the
+# committed report (manifests/asap7-npu.signoff.json), so a manifest edit, a
+# hand-edited report, or a grading-relevant klt change that is not accompanied
+# by a regenerated report fails the build instead of quietly diverging from
+# what the repo claims.
+#
+# `klt signoff --manifest` exits 3 when the block is not yet T1 (some item is
+# unmet) -- that is a successful, expected run today, not a CI failure. The
+# gate is the diff, not the exit code: exit 0 (T1 reached) and 3 (not yet)
+# both proceed to the diff; any other exit fails.
+#
+# klt is pinned to a full upstream commit SHA (the one place it is recorded;
+# manifests/README.md points here). Its bundled copy of
+# docs/design-evidence-tiers.md fixes the T1 item skeleton the report carries,
+# so a floating install would churn the committed report. Bump the SHA
+# deliberately, in the same change as a regenerated report.
+
+name: signoff
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install the pinned klt (klayout-tools)
+        run: |
+          uv tool install "klayout-tools @ git+https://github.com/2AMLogic/klayout-tools@7755612adb513f00ec61e7a77ff7091aee7630f5"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Re-run klt signoff and diff against the committed report
+        run: |
+          set +e
+          klt signoff --manifest manifests/asap7-npu.json --format json > /tmp/signoff-fresh.json
+          rc=$?
+          set -e
+          if [ "$rc" -ne 0 ] && [ "$rc" -ne 3 ]; then
+            echo "klt signoff failed (exit $rc):"
+            cat /tmp/signoff-fresh.json
+            exit 1
+          fi
+          if [ "$rc" -eq 3 ]; then
+            echo "note: block is not yet T1 (klt signoff exit 3) -- expected until every item is met"
+          fi
+          if ! diff -u \
+              <(python3 -m json.tool manifests/asap7-npu.signoff.json) \
+              <(python3 -m json.tool /tmp/signoff-fresh.json); then
+            echo "::error::fresh klt signoff grade differs from the committed report manifests/asap7-npu.signoff.json"
+            echo "Regenerate it:"
+            echo "  klt signoff --manifest manifests/asap7-npu.json --format json > manifests/asap7-npu.signoff.json"
+            exit 1
+          fi
+          python3 - <<'PY'
+          import json
+          r = json.load(open("/tmp/signoff-fresh.json"))
+          print(f'signoff report reproduced: tier={r["tier"]} '
+                f'{r["t1_met_count"]}/{r["t1_item_count"]} T1 items met')
+          PY

@@ -77,7 +77,23 @@ spec/          ratified spec + decision records, including the PDK bring-up
 rtl/           top-level wrapper; stamped copies from sky130-npu under rtl/common/
 verification/  stamped golden model + testbenches, run records
 layout/        GDS + DRC/LVS reports + STA reports + tool runtime records
+manifests/     klt signoff block manifest + its graded report (CI keeps it current)
 ```
+
+## Reproduce
+
+The block's gap-to-T1 state is graded by `klt signoff` from a committed
+manifest, and CI re-runs it on every PR. To regenerate the report locally
+(`<sha>` is the `klt` pin in `.github/workflows/signoff.yml`):
+
+```
+uvx --from "klayout-tools @ git+https://github.com/2AMLogic/klayout-tools@<sha>" \
+  klt signoff --manifest manifests/asap7-npu.json --format json \
+  > manifests/asap7-npu.signoff.json
+```
+
+Exit 3 means "not yet T1" (expected today). See
+[manifests/README.md](manifests/README.md).
 
 ## License
 
