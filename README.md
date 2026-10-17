@@ -14,7 +14,7 @@ FinFET node for research and teaching; no fab manufactures it. This block is
 this repo is a tool result against a predictive model — there is no silicon,
 no shuttle and no measurement at the end of the ladder.
 
-**Status: just opened, specification phase.** Nothing is designed yet.
+**Status: specification phase.** The target spec is drafted in [`spec/npu.md`](spec/npu.md) with status *proposed*; it is not yet ratified. Nothing is designed yet.
 
 **Built agent-native.** Every specification, decision record, testbench, and
 line of documentation here is produced by AI agents working from a ratified
@@ -49,7 +49,7 @@ take its pinned setup rather than building a second one.
   represented by abstract macro views — the choice is a decision record), and
   anything that implies manufacture.
 
-## Target specification (DRAFT — engineering to ratify, see issue #1)
+## Target specification (DRAFT — engineering to ratify; see [`spec/npu.md`](spec/npu.md), issue #3)
 
 All frequencies are predicted by STA against ASAP7's predictive models.
 
@@ -68,7 +68,8 @@ Maturity ladder: ASAP7 brought up under `klt` → spec ratified → origin RTL
 bit-exact at the scaled size → synthesized → placed and routed → DRC/LVS
 clean → post-route multi-corner STA closed at the target. **That is the end
 of the ladder; there is no fabrication step.** **Current position:
-pre-spec.**
+spec drafted (proposed), ASAP7 pinned in
+[`spec/decisions/0001-asap7-pin-and-klt-bring-up.md`](spec/decisions/0001-asap7-pin-and-klt-bring-up.md); ratification pending.**
 
 ## Repo layout
 
