@@ -4,6 +4,8 @@ Chronological record of merged PRs and closed issues. Maintained by the Guide ro
 
 ### 2026-10-20
 
+- **PR #7**: ci: grade klt signoff manifest and fail on report drift
+- **Issue #5** (closed): T1 item 10: commit a klt signoff block manifest and a CI job that keeps it graded
 - **PR #11**: chore: remove always-green stub gate scripts from package.json
 - **Issue #9** (closed): Remove stub package.json gate scripts that always exit 0 (test/lint/check:*)
 
