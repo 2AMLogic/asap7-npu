@@ -2,6 +2,11 @@
 
 Chronological record of merged PRs and closed issues. Maintained by the Guide role.
 
+### 2026-10-20
+
+- **PR #11**: chore: remove always-green stub gate scripts from package.json
+- **Issue #9** (closed): Remove stub package.json gate scripts that always exit 0 (test/lint/check:*)
+
 ### 2026-10-17
 
 - **Issue #3** (closed): Draft and ratify the target spec
