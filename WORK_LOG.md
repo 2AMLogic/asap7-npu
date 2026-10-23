@@ -2,6 +2,11 @@
 
 Chronological record of merged PRs and closed issues. Maintained by the Guide role.
 
+### 2026-10-23
+
+- **PR #19**: docs: adopt asap7-riscv-core ASAP7 bring-up by reference (decision 0003)
+- **Issue #17** (closed): Adopt asap7-riscv-core's ASAP7 bring-up by pinned reference (decision 0001 re-check)
+
 ### 2026-10-21
 
 - **PR #14**: Bump Repo Skills 0.24.3 -> 0.24.7
