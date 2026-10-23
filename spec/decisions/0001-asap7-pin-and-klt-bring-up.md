@@ -81,3 +81,10 @@ tool gaps below. This is a result, recorded as such.
 
 The pin is what later steps use. The spec's "ASAP7 resolves under `klt`" gate is
 met for layout reading only; the rest is open and tracked by the issues above.
+
+## Superseded in part by 0003 (2026-10-23)
+
+The "No bring-up to adopt" finding is out of date: `asap7-riscv-core` has landed
+one. [0003](0003-adopt-asap7-riscv-core-bring-up.md) adopts it by reference and
+records, row by row, where this record's pins agree and where they differ (`klt`
+pin, DRC deck, LVS options). The findings above are unchanged.

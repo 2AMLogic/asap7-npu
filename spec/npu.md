@@ -86,7 +86,9 @@ corners; there is no statistical row.
 
 "Clean" means: zero violations from the pinned deck, on the full chip, with
 every missing rule listed. The pinned deck and its known gaps are in
-`spec/decisions/0001-asap7-pin-and-klt-bring-up.md`. A run against a deck with
+`spec/decisions/0001-asap7-pin-and-klt-bring-up.md`; the deck hash, `klt`
+pin and LVS options are adopted by reference in
+`spec/decisions/0003-adopt-asap7-riscv-core-bring-up.md`. A run against a deck with
 missing rules is reported as "clean against the deck subset", with the missing
 rules named, never as plain "clean".
 
