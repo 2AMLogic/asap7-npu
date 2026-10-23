@@ -69,7 +69,9 @@ bit-exact at the scaled size → synthesized → placed and routed → DRC/LVS
 clean → post-route multi-corner STA closed at the target. **That is the end
 of the ladder; there is no fabrication step.** **Current position:
 spec drafted (proposed), ASAP7 pinned in
-[`spec/decisions/0001-asap7-pin-and-klt-bring-up.md`](spec/decisions/0001-asap7-pin-and-klt-bring-up.md); ratification pending.**
+[`spec/decisions/0001-asap7-pin-and-klt-bring-up.md`](spec/decisions/0001-asap7-pin-and-klt-bring-up.md),
+bring-up adopted from `asap7-riscv-core` in
+[`spec/decisions/0003-adopt-asap7-riscv-core-bring-up.md`](spec/decisions/0003-adopt-asap7-riscv-core-bring-up.md) (proposed); ratification pending.**
 
 ## Repo layout
 
