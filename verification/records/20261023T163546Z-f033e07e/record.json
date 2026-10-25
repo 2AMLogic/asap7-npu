@@ -1,0 +1,17 @@
+{
+  "cocotb": "2.0.1",
+  "failures": 0,
+  "id": "f033e07e",
+  "parameters": {
+    "WIDTH": "8"
+  },
+  "passed": true,
+  "simulator": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "sources": [
+    "verification/placeholder/passthru.v"
+  ],
+  "test_module": "test_smoke",
+  "tests": 1,
+  "toplevel": "passthru",
+  "utc": "2026-10-23T16:35:46.846806+00:00"
+}

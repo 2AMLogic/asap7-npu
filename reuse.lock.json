@@ -1,0 +1,171 @@
+{
+  "imports": [
+    {
+      "kind": "vendored",
+      "source": "2AMLogic/sky130-npu",
+      "commit": "f8e2dfe043739bf4260c2652b377ee406a81bc6f",
+      "files": [
+        {
+          "upstream": ".github/workflows/verification.yml",
+          "local": ".github/workflows/verification.yml",
+          "sha256": "214513a29cf8a9748c04e0dfc3dd5304f367fd337ff4ae008588b754a29885b7"
+        },
+        {
+          "upstream": "verification/README.md",
+          "local": "verification/README.md",
+          "sha256": "dd1de08d150e4cde8c20870e447d08518ae4cc398143d559e4890732fa9790d5"
+        },
+        {
+          "upstream": "verification/golden/README.md",
+          "local": "verification/golden/README.md",
+          "sha256": "342ac7ebe2b5a864390785590400816c300aab3960072f1aed8f8c929e1e2d28"
+        },
+        {
+          "upstream": "verification/golden/__init__.py",
+          "local": "verification/golden/__init__.py",
+          "sha256": "1c6b8df9660f48656efd9345bd8808cbae51d6e868549e203a270c89c43fec2b"
+        },
+        {
+          "upstream": "verification/golden/workloads.py",
+          "local": "verification/golden/workloads.py",
+          "sha256": "e2a38097bba82349c56a99cccdd7d8a2a863243bcd4ab70669f6e523f0340791"
+        },
+        {
+          "upstream": "verification/placeholder/README.md",
+          "local": "verification/placeholder/README.md",
+          "sha256": "193caaa89cd58452ee93a4b1a08f3ceebcea4090b1bc22bd164f53936e6e1c34"
+        },
+        {
+          "upstream": "verification/placeholder/passthru.v",
+          "local": "verification/placeholder/passthru.v",
+          "sha256": "cff909706d9c8ecc8aa82b1dd2ac987bdc42f02979466a5f3a9325905fab1d78"
+        },
+        {
+          "upstream": "verification/records/README.md",
+          "local": "verification/records/README.md",
+          "sha256": "cb24a5d6872f7d9da8a20f051940f28e2b5316035e933d0f17138625508167fd"
+        },
+        {
+          "upstream": "verification/requirements.txt",
+          "local": "verification/requirements.txt",
+          "sha256": "9bc997c473bd44c93f41772d3a19c723a1a538dbf93f870ffb09c63c66267491"
+        },
+        {
+          "upstream": "verification/runner.py",
+          "local": "verification/runner.py",
+          "sha256": "deff7e43c97cf7982a28dc2e2b94ea3d7263abab934898748dec0b3515b1271b"
+        },
+        {
+          "upstream": "verification/tests/test_golden.py",
+          "local": "verification/tests/test_golden.py",
+          "sha256": "2bf10619e9047fb969eecb0d70cf4b5ddb7711ef26349419bb9df763cab39b83"
+        },
+        {
+          "upstream": "verification/tests/test_smoke.py",
+          "local": "verification/tests/test_smoke.py",
+          "sha256": "df8b524cbf356cb2b523efa90671d8a766f283eb451e82bc061b0d8a8f8ec573"
+        },
+        {
+          "upstream": "verification/workloads/conv-3x3-a/a.hex",
+          "local": "verification/workloads/conv-3x3-a/a.hex",
+          "sha256": "0de88edd44e7af0ecd5ca47f02629e2de22951e12cb406c7acea7a2a35c0ca60"
+        },
+        {
+          "upstream": "verification/workloads/conv-3x3-a/b.hex",
+          "local": "verification/workloads/conv-3x3-a/b.hex",
+          "sha256": "db395bc5368e4f8f75adae196c036c0269fd788d66cddb127355f40bbba517ca"
+        },
+        {
+          "upstream": "verification/workloads/conv-3x3-a/bias.hex",
+          "local": "verification/workloads/conv-3x3-a/bias.hex",
+          "sha256": "43390737f7fa3bc75c7affd7e503787ba9d52f2aae91a9994016662cf15c3134"
+        },
+        {
+          "upstream": "verification/workloads/conv-3x3-a/expected_out.hex",
+          "local": "verification/workloads/conv-3x3-a/expected_out.hex",
+          "sha256": "27f12c56cecc63131aa21c84e0478e973eb6b772f1244ab6d412b0949dc2dda8"
+        },
+        {
+          "upstream": "verification/workloads/conv-3x3-a/params.json",
+          "local": "verification/workloads/conv-3x3-a/params.json",
+          "sha256": "820c83416d1f2cf70987cca4aaaede06081ff1718ef7563fdf2952f60b9fbafe"
+        },
+        {
+          "upstream": "verification/workloads/conv-3x3-edge/a.hex",
+          "local": "verification/workloads/conv-3x3-edge/a.hex",
+          "sha256": "10ebc1918990ad6e0b9d122eaea74c4d57bcaf9f1bd928444e9b1be2250ccf6b"
+        },
+        {
+          "upstream": "verification/workloads/conv-3x3-edge/b.hex",
+          "local": "verification/workloads/conv-3x3-edge/b.hex",
+          "sha256": "b533579c2c2bca9d86baddfc1ea78bac72b36bd54489aad2a627c0ed0a5ea159"
+        },
+        {
+          "upstream": "verification/workloads/conv-3x3-edge/bias.hex",
+          "local": "verification/workloads/conv-3x3-edge/bias.hex",
+          "sha256": "b336bcafbeb2c7860c970fc271b4e12a6bca2bfb2537aabf70f2ea5f77cfc0cb"
+        },
+        {
+          "upstream": "verification/workloads/conv-3x3-edge/expected_out.hex",
+          "local": "verification/workloads/conv-3x3-edge/expected_out.hex",
+          "sha256": "c00bad8641780e5077723e23b0eee1ecab6e0164f173e919e54a5908dc2d6fc4"
+        },
+        {
+          "upstream": "verification/workloads/conv-3x3-edge/params.json",
+          "local": "verification/workloads/conv-3x3-edge/params.json",
+          "sha256": "1c6832480182936dfe3097daf8365d58511328512722a2d093d8b24465dba900"
+        },
+        {
+          "upstream": "verification/workloads/mm-fc/a.hex",
+          "local": "verification/workloads/mm-fc/a.hex",
+          "sha256": "d8960a0051842b555ac3463cf315677662a93f46e043f7f1b3310884222d573e"
+        },
+        {
+          "upstream": "verification/workloads/mm-fc/b.hex",
+          "local": "verification/workloads/mm-fc/b.hex",
+          "sha256": "14c7459103e4b52a0b671bf8eb9c4e2f1b2db8b2d8dd83bae8650137a3555251"
+        },
+        {
+          "upstream": "verification/workloads/mm-fc/bias.hex",
+          "local": "verification/workloads/mm-fc/bias.hex",
+          "sha256": "37e63e1ad31eefcf004bb8ff43b46eb5d1a1cb919f8e3726d1a013938c7cc35f"
+        },
+        {
+          "upstream": "verification/workloads/mm-fc/expected_out.hex",
+          "local": "verification/workloads/mm-fc/expected_out.hex",
+          "sha256": "8389177c198d65dd1e11cceab3985f3a9a5922a1472e60d6884358dd5a634561"
+        },
+        {
+          "upstream": "verification/workloads/mm-fc/params.json",
+          "local": "verification/workloads/mm-fc/params.json",
+          "sha256": "6b91b2135001eb73efcfc474713568df03d5f9834d89a580e7a7e3cfd3097be4"
+        },
+        {
+          "upstream": "verification/workloads/mm-smoke/a.hex",
+          "local": "verification/workloads/mm-smoke/a.hex",
+          "sha256": "0bf84c0a364fb6764326d5b1a7015997e1ae62440b2a11c01037fa69d6befadd"
+        },
+        {
+          "upstream": "verification/workloads/mm-smoke/b.hex",
+          "local": "verification/workloads/mm-smoke/b.hex",
+          "sha256": "cb77de42b6ba9a5056057ef7ada27088eff8b39b5ae5a8b6c559fea12e6c870a"
+        },
+        {
+          "upstream": "verification/workloads/mm-smoke/bias.hex",
+          "local": "verification/workloads/mm-smoke/bias.hex",
+          "sha256": "3246af47e8bd97b3f27adcae01cd882dbb3fe805269cd63b0829933f03cfd943"
+        },
+        {
+          "upstream": "verification/workloads/mm-smoke/expected_out.hex",
+          "local": "verification/workloads/mm-smoke/expected_out.hex",
+          "sha256": "af083a7e5f526284baa092e5c3db6df0425b80a0a100de5708db691d97c849b3"
+        },
+        {
+          "upstream": "verification/workloads/mm-smoke/params.json",
+          "local": "verification/workloads/mm-smoke/params.json",
+          "sha256": "f0601952bfb83105124820af7db6a9701676e23c96458b19f151a307f17e21de"
+        }
+      ]
+    }
+  ]
+}
