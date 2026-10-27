@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "kind": "generic",
+  "status": "pass",
+  "t1_item": 10,
+  "summary": "T1 item 10 (Repo hygiene): 6/6 attestation checks passed (klt signoff --attest)",
+  "source": "manifests/inventories/item-10.json",
+  "attestation": {
+    "producer": "klt signoff --attest",
+    "inventory_schema_version": 1,
+    "hash_algorithm": "sha256-raw-bytes",
+    "check_count": 6,
+    "passed_count": 6,
+    "checks": [
+      {
+        "check": "present",
+        "role": "hygiene",
+        "path": ".github/workflows/signoff.yml",
+        "passed": true,
+        "content_hash": "sha256:92f5291d4ddc33d87bfbe5fbbb3f1e738e2b1df64ac352d83ed0867f25843e12"
+      },
+      {
+        "check": "present",
+        "role": "hygiene",
+        "path": "LICENSE",
+        "passed": true,
+        "content_hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      },
+      {
+        "check": "present",
+        "role": "hygiene",
+        "path": "README.md",
+        "passed": true,
+        "content_hash": "sha256:4e4b5670db7822897edb5c44b7b03506115a37807c344f7cff624d3c69f3e227"
+      },
+      {
+        "check": "command",
+        "role": "audit",
+        "name": "manifest-json-valid",
+        "argv": [
+          "python3",
+          "-m",
+          "json.tool",
+          "manifests/asap7-npu.json"
+        ],
+        "cwd": ".",
+        "exit_status": 0,
+        "passed": true
+      },
+      {
+        "check": "command",
+        "role": "audit",
+        "name": "signoff-report-json-valid",
+        "argv": [
+          "python3",
+          "-m",
+          "json.tool",
+          "manifests/asap7-npu.signoff.json"
+        ],
+        "cwd": ".",
+        "exit_status": 0,
+        "passed": true
+      },
+      {
+        "check": "command",
+        "role": "audit",
+        "name": "ci-workflow-pins-klt-commit",
+        "argv": [
+          "grep",
+          "-Eq",
+          "klayout-tools@[0-9a-f]{40}",
+          ".github/workflows/signoff.yml"
+        ],
+        "cwd": ".",
+        "exit_status": 0,
+        "passed": true
+      }
+    ]
+  },
+  "provenance": {
+    "klt_version": "0.8.0.dev2612+gc572046be644",
+    "klayout_version": null,
+    "pdk": null,
+    "deck": null,
+    "input": {
+      "path": {
+        "path": "manifests/inventories/item-10.json",
+        "scope": "repo"
+      },
+      "content_hash": "sha256:411a976d2e92d49a73dc79e2a24fc5eb572ad4cd0c9d8692e8705035b787315b"
+    }
+  }
+}

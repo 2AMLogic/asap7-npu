@@ -85,17 +85,18 @@ manifests/     klt signoff block manifest + its graded report (CI keeps it curre
 
 ## Reproduce
 
-The block's gap-to-T1 state is graded by `klt signoff` from a committed
-manifest, and CI re-runs it on every PR. To regenerate the report locally
-(`<sha>` is the `klt` pin in `.github/workflows/signoff.yml`):
+Every committed result and the command that reproduces it. This list grows as
+T1 items land. `<sha>` is the `klt` pin in `.github/workflows/signoff.yml`
+(v0.8.0); prefix each `klt` with
+`uvx --from "klayout-tools @ git+https://github.com/2AMLogic/klayout-tools@<sha>"`.
+CI runs both commands on every PR and push.
 
-```
-uvx --from "klayout-tools @ git+https://github.com/2AMLogic/klayout-tools@<sha>" \
-  klt signoff --manifest manifests/asap7-npu.json --format json \
-  > manifests/asap7-npu.signoff.json
-```
+| Result | Command | Expected |
+|---|---|---|
+| Gap-to-T1 report, `manifests/asap7-npu.signoff.json` | `klt signoff --manifest manifests/asap7-npu.json --format json > manifests/asap7-npu.signoff.json` | exit 3 ("not yet T1") until every item is met; the output must equal the committed report |
+| T1 item 10 (repo hygiene) attestation, `manifests/attestations/item-10.json` | `klt signoff --attest 10 --inventory manifests/inventories/item-10.json --check manifests/attestations/item-10.json` | exit 0 (no drift); regenerate with `-o manifests/attestations/item-10.json` in place of `--check` |
 
-Exit 3 means "not yet T1" (expected today). See
+Exit 3 from the first command means "not yet T1" and is expected today. See
 [manifests/README.md](manifests/README.md).
 
 ## License

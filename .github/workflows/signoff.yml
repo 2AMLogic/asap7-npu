@@ -14,7 +14,8 @@
 # gate is the diff, not the exit code: exit 0 (T1 reached) and 3 (not yet)
 # both proceed to the diff; any other exit fails.
 #
-# klt is pinned to a full upstream commit SHA (the one place it is recorded;
+# klt is pinned to a full upstream commit SHA (v0.8.0, the first release with
+# `klt signoff --attest`; the one place it is recorded;
 # manifests/README.md points here). Its bundled copy of
 # docs/design-evidence-tiers.md fixes the T1 item skeleton the report carries,
 # so a floating install would churn the committed report. Bump the SHA
@@ -42,7 +43,7 @@ jobs:
 
       - name: Install the pinned klt (klayout-tools)
         run: |
-          uv tool install "klayout-tools @ git+https://github.com/2AMLogic/klayout-tools@7755612adb513f00ec61e7a77ff7091aee7630f5"
+          uv tool install "klayout-tools @ git+https://github.com/2AMLogic/klayout-tools@c572046be644e0407f693f2410f3abb799d68a3a"
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
       - name: Re-run klt signoff and diff against the committed report
@@ -73,3 +74,9 @@ jobs:
           print(f'signoff report reproduced: tier={r["tier"]} '
                 f'{r["t1_met_count"]}/{r["t1_item_count"]} T1 items met')
           PY
+
+      - name: Re-attest T1 item 10 and diff against the committed envelope
+        run: |
+          klt signoff --attest 10 \
+            --inventory manifests/inventories/item-10.json \
+            --check manifests/attestations/item-10.json
