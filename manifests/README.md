@@ -37,3 +37,12 @@ other exit is a failure.
 output differs from the committed report, or if `klt` exits with anything but
 0 or 3. A manifest edit therefore lands together with a regenerated report,
 and **a `klt` pin bump lands with a regenerated report**.
+
+## Item 1 evidence
+
+`item-1.inventory.json` is the `klt signoff --attest 1` inventory;
+`evidence/item1.json` is its envelope, cited from `asap7-npu.json`. The attested
+netlist is **`ARRAY_N = 8`** (interim; decision 0004). Regenerate the envelope
+with `klt signoff --attest 1 --inventory manifests/item-1.inventory.json -o
+manifests/evidence/item1.json`, then update the `content_hash` in the manifest
+and regenerate the report.
