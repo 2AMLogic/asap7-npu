@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "kind": "t1-attestation-inventory",
+  "t1_item": 1,
+  "description": "Design sources at ARRAY_N = 8 (interim; 16 x 16 and 32 x 32 are blocked at the origin, decision 0004). Predicted results against a predictive model; never fabricated.",
+  "sources": [
+    "rtl/common/npu_top.v",
+    "rtl/common/npu_host.v",
+    "rtl/common/npu_ctrl.v",
+    "rtl/common/npu_banks.v",
+    "rtl/common/npu_array.v",
+    "rtl/common/npu_pe.v",
+    "rtl/common/npu_requant.v",
+    "rtl/pdk/asap7/npu_sram_bank.v",
+    "rtl/synth/synth-request.json",
+    "reuse.lock.json"
+  ],
+  "derived": [
+    {
+      "path": "rtl/synth/records/2026-10-27-asap7-n8/npu_top_synth.v",
+      "generator": "klt synthesize (rtl/synth/synth.sh), ARRAY_N = 8",
+      "check": { "argv": ["rtl/synth/check-fresh.sh"] }
+    }
+  ]
+}

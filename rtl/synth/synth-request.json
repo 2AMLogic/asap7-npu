@@ -1,0 +1,18 @@
+{
+  "schema": "klt.synthesize.request/1",
+  "engine": "yosys",
+  "sources": [
+    "../common/npu_top.v",
+    "../common/npu_host.v",
+    "../common/npu_ctrl.v",
+    "../common/npu_banks.v",
+    "../common/npu_array.v",
+    "../common/npu_pe.v",
+    "../common/npu_requant.v",
+    "../pdk/asap7/npu_sram_bank.v"
+  ],
+  "hdl_toplevel": "npu_top",
+  "parameters": { "ARRAY_N": 8 },
+  "pdk": { "cell_library": "asap7sc7p5t_28", "corner": "RVT_TT" },
+  "constraints": { "clock_period_ns": null }
+}

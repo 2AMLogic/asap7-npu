@@ -1,0 +1,10 @@
+npu_sram_bank
+npu_sram_bank/r_rdata
+npu_sram_bank/r_addr
+npu_sram_bank/r_en
+npu_sram_bank/rw_rdata
+npu_sram_bank/rw_wdata
+npu_sram_bank/rw_addr
+npu_sram_bank/rw_we
+npu_sram_bank/rw_en
+npu_sram_bank/clk

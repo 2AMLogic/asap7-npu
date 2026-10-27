@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "kind": "generic",
+  "status": "pass",
+  "t1_item": 1,
+  "summary": "T1 item 1 (Design sources): 12/12 attestation checks passed (klt signoff --attest)",
+  "source": "manifests/item-1.inventory.json",
+  "attestation": {
+    "producer": "klt signoff --attest",
+    "inventory_schema_version": 1,
+    "hash_algorithm": "sha256-raw-bytes",
+    "check_count": 12,
+    "passed_count": 12,
+    "checks": [
+      {
+        "check": "present",
+        "role": "source",
+        "path": "reuse.lock.json",
+        "passed": true,
+        "content_hash": "sha256:b248261123be8c2391c186b1cb6f6477cb84ee719a4e8f5f2c782be5ca98fd6b"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "rtl/common/npu_array.v",
+        "passed": true,
+        "content_hash": "sha256:15c92e6fe78c8b80a59089cd2f9273207e7ee30d85461af3751ccf641875ce20"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "rtl/common/npu_banks.v",
+        "passed": true,
+        "content_hash": "sha256:aabd40e1c4974db5fc1adddedbd8710af6c78bc17119af0f690ce42a845bf864"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "rtl/common/npu_ctrl.v",
+        "passed": true,
+        "content_hash": "sha256:27f7b5b92edc1c3be95c7d00e377270edc42776cb9db7852d88404bd7b984c6d"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "rtl/common/npu_host.v",
+        "passed": true,
+        "content_hash": "sha256:ae5cf6522a91c1b4ec650e708570a6a1eaae083a9fdf06048856cec0f69cf24e"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "rtl/common/npu_pe.v",
+        "passed": true,
+        "content_hash": "sha256:1ea252c7c3060d5b2e5fecb41b5f668afc4f09982065e45e8832551276551bf5"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "rtl/common/npu_requant.v",
+        "passed": true,
+        "content_hash": "sha256:e0b0b881ce2961e6c1b53f7c59313bd25ffbd9f51b107955a0a8488a8ad393be"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "rtl/common/npu_top.v",
+        "passed": true,
+        "content_hash": "sha256:a34f636ad59911bd1f54e5ca449118aa215f732cff1f4ec8c295cc39ebf00841"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "rtl/pdk/asap7/npu_sram_bank.v",
+        "passed": true,
+        "content_hash": "sha256:d8ab4d159584fa5d8e64f329322ff2482c983c042a747054cd3c22c16682f1f9"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "rtl/synth/synth-request.json",
+        "passed": true,
+        "content_hash": "sha256:97a9a2c17242b3eeaf4ee78369e1c442fc863a9c4b07bb2346c0c180ac9c0501"
+      },
+      {
+        "check": "present",
+        "role": "derived",
+        "path": "rtl/synth/records/2026-10-27-asap7-n8/npu_top_synth.v",
+        "passed": true,
+        "content_hash": "sha256:ec783d565f0c770890e83c698d34d9edf00ee472269ad954fd5380cf7724330c"
+      },
+      {
+        "check": "command",
+        "role": "freshness",
+        "target": "rtl/synth/records/2026-10-27-asap7-n8/npu_top_synth.v",
+        "generator": "klt synthesize (rtl/synth/synth.sh), ARRAY_N = 8",
+        "argv": [
+          "rtl/synth/check-fresh.sh"
+        ],
+        "cwd": ".",
+        "exit_status": 0,
+        "passed": true
+      }
+    ]
+  },
+  "provenance": {
+    "klt_version": "0.8.1.dev55+g879d39bad82b",
+    "klayout_version": null,
+    "pdk": null,
+    "deck": null,
+    "input": {
+      "path": {
+        "path": "manifests/item-1.inventory.json",
+        "scope": "repo"
+      },
+      "content_hash": "sha256:727fa9858cd0b7af9e0a0cc99c89d0a52d0e826cfcbc15e84f7665d6a82c090d"
+    }
+  }
+}

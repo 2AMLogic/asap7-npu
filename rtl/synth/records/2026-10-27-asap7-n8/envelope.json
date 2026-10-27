@@ -1,0 +1,176 @@
+{
+  "schema_version": 2,
+  "engine": "yosys",
+  "engine_version": "0.67+post",
+  "hdl_toplevel": "npu_top",
+  "parameters": {
+    "ARRAY_N": 8
+  },
+  "run_id": "run-1b1c183fe5f641f3ad2166e69808c850",
+  "status": "ok",
+  "instance_count": 77834,
+  "area_um2": 7770.51306,
+  "sequential_area_um2": 1336.986,
+  "instance_counts_by_type": {
+    "A2O1A1Ixp33_ASAP7_75t_R": 584,
+    "A2O1A1O1Ixp25_ASAP7_75t_R": 364,
+    "AND2x2_ASAP7_75t_R": 1641,
+    "AND3x1_ASAP7_75t_R": 595,
+    "AND4x1_ASAP7_75t_R": 158,
+    "AND5x1_ASAP7_75t_R": 28,
+    "AO211x2_ASAP7_75t_R": 4,
+    "AO21x1_ASAP7_75t_R": 1018,
+    "AO221x1_ASAP7_75t_R": 14,
+    "AO22x1_ASAP7_75t_R": 10,
+    "AO31x2_ASAP7_75t_R": 6,
+    "AO32x1_ASAP7_75t_R": 19,
+    "AO33x2_ASAP7_75t_R": 1,
+    "AOI211xp5_ASAP7_75t_R": 623,
+    "AOI21xp33_ASAP7_75t_R": 2824,
+    "AOI221xp5_ASAP7_75t_R": 74,
+    "AOI22xp33_ASAP7_75t_R": 1090,
+    "AOI311xp33_ASAP7_75t_R": 36,
+    "AOI31xp33_ASAP7_75t_R": 177,
+    "AOI32xp33_ASAP7_75t_R": 52,
+    "DFFHQNx1_ASAP7_75t_R": 4585,
+    "INVx1_ASAP7_75t_R": 9543,
+    "MAJIxp5_ASAP7_75t_R": 4824,
+    "MAJx2_ASAP7_75t_R": 618,
+    "NAND2xp33_ASAP7_75t_R": 8825,
+    "NAND3xp33_ASAP7_75t_R": 992,
+    "NAND4xp25_ASAP7_75t_R": 134,
+    "NAND5xp2_ASAP7_75t_R": 100,
+    "NOR2xp33_ASAP7_75t_R": 5526,
+    "NOR3xp33_ASAP7_75t_R": 1490,
+    "NOR4xp25_ASAP7_75t_R": 82,
+    "NOR5xp2_ASAP7_75t_R": 32,
+    "O2A1O1Ixp33_ASAP7_75t_R": 1340,
+    "OA211x2_ASAP7_75t_R": 364,
+    "OA21x2_ASAP7_75t_R": 1084,
+    "OA221x2_ASAP7_75t_R": 1,
+    "OA222x2_ASAP7_75t_R": 8,
+    "OA22x2_ASAP7_75t_R": 12,
+    "OA31x2_ASAP7_75t_R": 3,
+    "OAI211xp5_ASAP7_75t_R": 132,
+    "OAI21xp33_ASAP7_75t_R": 5064,
+    "OAI221xp5_ASAP7_75t_R": 56,
+    "OAI222xp33_ASAP7_75t_R": 10,
+    "OAI22xp33_ASAP7_75t_R": 1278,
+    "OAI311xp33_ASAP7_75t_R": 31,
+    "OAI31xp33_ASAP7_75t_R": 607,
+    "OAI321xp33_ASAP7_75t_R": 91,
+    "OAI32xp33_ASAP7_75t_R": 52,
+    "OR2x2_ASAP7_75t_R": 1544,
+    "OR3x1_ASAP7_75t_R": 497,
+    "OR4x1_ASAP7_75t_R": 41,
+    "OR5x1_ASAP7_75t_R": 3,
+    "XNOR2xp5_ASAP7_75t_R": 12687,
+    "XOR2xp5_ASAP7_75t_R": 6856,
+    "npu_sram_bank": 4
+  },
+  "leakage_power_nw": null,
+  "leakage_by_type_nw": null,
+  "timing": null,
+  "clock_targets": {
+    "clocks": [],
+    "delay_target_ps": null,
+    "delay_target_basis": "none",
+    "per_clock_enforced": false
+  },
+  "sta": null,
+  "sta_unavailable_reason": "the optional klt_statime_native extension is not installed (it is not shipped with the published klayout-tools package), so no gate-level static timing analysis was attempted -- from a repo checkout, run `uv sync --group statime` (or `maturin develop --release` inside native/statime/) and re-run to populate `sta`; from an installed package, `klt sta` with a `verilog` request gives a netlist-level timing estimate (needs OpenSTA)",
+  "structural": {
+    "latches": 0,
+    "expected_latches": 0,
+    "unexpected_latches": 0,
+    "comb_loops": 0,
+    "multi_driven": 0,
+    "has_critical": false
+  },
+  "cell_exclusions": {
+    "mode": "additive",
+    "requested": [],
+    "library_defaults": [],
+    "effective": [],
+    "validated": null,
+    "engine_supports_dont_use": null
+  },
+  "warnings": {
+    "total": 45,
+    "by_category": {
+      "other": 44,
+      "unsupported_cell_library": 1
+    },
+    "representatives": [
+      {
+        "category": "other",
+        "count": 44,
+        "text": "Replacing memory \\g_skew_b[7].g_delay.dly with list of registers. See rtl/common/npu_array.v:51"
+      },
+      {
+        "category": "unsupported_cell_library",
+        "count": 1,
+        "text": "cell_library 'asap7sc7p5t_28' has no verified mapping for: ABC -constr (driving cell/output load), load-driven sizing/buffering and ABC timing (timing is null); setundef -zero/hilomap (bare 0/1/x constants may remain unroutable in place-and-route). These capabilities were skipped."
+      }
+    ]
+  },
+  "memory_mapping": {
+    "status": "lowered_to_logic",
+    "reason": null,
+    "modules": [
+      {
+        "module": "$paramod$e7fd8e0eca7ce7b6416f60123ae2344f347f40c4\\npu_host",
+        "status": "lowered_to_logic",
+        "elaborated_memories": 1,
+        "elaborated_memory_bits": 256,
+        "pre_lowering_memories": 1,
+        "final_memories": 0
+      }
+    ],
+    "script_path": {
+      "path": "rtl/synth/.klt/synthesize/run-1b1c183fe5f641f3ad2166e69808c850/npu_top_memory_evidence.ys",
+      "scope": "repo"
+    }
+  },
+  "blackbox_modules": [
+    "npu_sram_bank"
+  ],
+  "netlist_path": {
+    "path": "rtl/synth/.klt/synthesize/run-1b1c183fe5f641f3ad2166e69808c850/npu_top_synth.v",
+    "scope": "repo"
+  },
+  "netlist_sha256": "ec783d565f0c770890e83c698d34d9edf00ee472269ad954fd5380cf7724330c",
+  "script_path": {
+    "path": "rtl/synth/.klt/synthesize/run-1b1c183fe5f641f3ad2166e69808c850/synth_npu_top.ys",
+    "scope": "repo"
+  },
+  "run_script_path": {
+    "path": "rtl/synth/.klt/synthesize/run-1b1c183fe5f641f3ad2166e69808c850/synth_npu_top.ys",
+    "scope": "repo"
+  },
+  "provenance": {
+    "klt_version": "0.8.1.dev55+g879d39bad82b",
+    "klayout_version": "0.30.12",
+    "pdk": {
+      "name": "asap7",
+      "source": "--pdk-root flag",
+      "version": null
+    },
+    "deck": {
+      "name": "asap7sc7p5t_28__RVT_TT",
+      "content_hash": "sha256:2a5e3beb957dfadb9157430d2d255277e257e8152ab4f01eef6953c95f3756da",
+      "released": false
+    },
+    "input": {
+      "content_hash": "sha256:6ab7d3f04a5d7fc513c484f55a38e074b672fd0a73c9f09839f76b66bde4fd30",
+      "role": "source"
+    },
+    "parameters": {
+      "ARRAY_N": 8
+    }
+  },
+  "equivalence": null,
+  "restructuring": null,
+  "arithmetic": null,
+  "baseline": null
+}
