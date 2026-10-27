@@ -32,6 +32,7 @@ _None._
 Issues currently being built (`loom:building`).
 
 - **#16**: T1 item 9: stamp sky130-npu's verification harness, golden model and workloads with a reuse.lock.json pin
+- **#30**: Install the two-key ratification path and ratify spec/npu.md
 
 ## PRs Awaiting Review
 
@@ -51,6 +52,8 @@ Issues carrying `loom:curated`.
 
 - **#4**: Track the gap to T1 (klayout-tools design-evidence-tiers.md) *(curated)*
 - **#16**: T1 item 9: stamp sky130-npu's verification harness, golden model and workloads with a reuse.lock.json pin *(curated)*
+- **#23**: T1 item 2 (layout): routed NPU GDS on ASAP7 from a committed OpenROAD flow with abstract memory macros *(curated)*
+- **#30**: Install the two-key ratification path and ratify spec/npu.md *(curated)*
 
 ## Proposed (Architect / Hermit)
 
@@ -68,10 +71,10 @@ _None._
 | Very important | 0 |
 | Important | 1 |
 | Ready (`loom:issue`) | 0 |
-| In Progress (`loom:building`) | 1 |
+| In Progress (`loom:building`) | 2 |
 | PRs awaiting review | 0 |
 | Approved PRs awaiting merge | 0 |
-| Curated | 2 |
+| Curated | 4 |
 | Architect / Hermit proposals | 0 |
 | Active epics | 0 |
 <!-- guide:plan-body:end -->
