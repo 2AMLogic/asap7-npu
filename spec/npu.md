@@ -1,8 +1,10 @@
 # asap7-npu target specification
 
-**Status: proposed.** Not ratified. Ratification is a human act; agents do not
-mark this file ratified (see `CLAUDE.md`). Edits after ratification go through
-a decision record under `spec/decisions/`.
+**Status: ratified on the operator's approval of the pull request that carries
+this line** (`spec/decisions/0005-ratify-npu-spec.md`). Until that approval is
+merged this file is proposed. Ratification is a human act; agents do not merge
+the change or mark this file ratified (see `CLAUDE.md`). Edits after
+ratification go through a decision record under `spec/decisions/`.
 
 ## Predictive PDK statement
 
