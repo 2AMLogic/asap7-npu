@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "kind": "t1-attestation-inventory",
+  "t1_item": 10,
+  "description": "Repo hygiene: README, license, and the CI workflow, plus checks that the machine-readable evidence formats parse and the CI workflow pins klt to a full commit.",
+  "hygiene": [
+    "README.md",
+    "LICENSE",
+    ".github/workflows/signoff.yml"
+  ],
+  "checks": [
+    {
+      "name": "manifest-json-valid",
+      "argv": ["python3", "-m", "json.tool", "manifests/asap7-npu.json"]
+    },
+    {
+      "name": "signoff-report-json-valid",
+      "argv": ["python3", "-m", "json.tool", "manifests/asap7-npu.signoff.json"]
+    },
+    {
+      "name": "ci-workflow-pins-klt-commit",
+      "argv": ["grep", "-Eq", "klayout-tools@[0-9a-f]{40}", ".github/workflows/signoff.yml"]
+    }
+  ]
+}
