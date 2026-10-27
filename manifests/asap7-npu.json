@@ -1,5 +1,10 @@
 {
   "block": "asap7-npu",
   "kind": "digital",
-  "evidence": {}
+  "evidence": {
+    "1": {
+      "file": "manifests/evidence/item1.json",
+      "content_hash": "sha256:727fa9858cd0b7af9e0a0cc99c89d0a52d0e826cfcbc15e84f7665d6a82c090d"
+    }
+  }
 }

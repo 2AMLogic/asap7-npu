@@ -1,0 +1,16 @@
+read_verilog rtl/common/npu_top.v
+read_verilog rtl/common/npu_host.v
+read_verilog rtl/common/npu_ctrl.v
+read_verilog rtl/common/npu_banks.v
+read_verilog rtl/common/npu_array.v
+read_verilog rtl/common/npu_pe.v
+read_verilog rtl/common/npu_requant.v
+read_verilog rtl/pdk/asap7/npu_sram_bank.v
+chparam -set ARRAY_N 8 npu_top
+hierarchy -check -top npu_top
+synth -top npu_top
+dfflibmap -liberty /home/ubuntu/.cache/klt/liberty-merged/merged-c09a442fc3ed9efb5fb27be9.lib
+abc -liberty /home/ubuntu/.cache/klt/liberty-merged/merged-c09a442fc3ed9efb5fb27be9.lib
+clean
+tee -q -o rtl/synth/.klt/synthesize/run-1b1c183fe5f641f3ad2166e69808c850/npu_top_stats.json stat -liberty /home/ubuntu/.cache/klt/liberty-merged/merged-c09a442fc3ed9efb5fb27be9.lib -json -top npu_top
+write_verilog -noattr rtl/synth/.klt/synthesize/run-1b1c183fe5f641f3ad2166e69808c850/npu_top_synth.v
