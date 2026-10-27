@@ -19,7 +19,7 @@ _None._
 
 `loom:important`; taken before unlabelled work.
 
-_None._
+- **#23**: T1 item 2 (layout): routed NPU GDS on ASAP7 from a committed OpenROAD flow with abstract memory macros
 
 ## Ready
 
@@ -66,7 +66,7 @@ _None._
 |------|-------|
 | Operator merge-risk holds | 0 |
 | Very important | 0 |
-| Important | 0 |
+| Important | 1 |
 | Ready (`loom:issue`) | 0 |
 | In Progress (`loom:building`) | 1 |
 | PRs awaiting review | 0 |

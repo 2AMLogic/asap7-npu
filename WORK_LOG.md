@@ -2,6 +2,13 @@
 
 Chronological record of merged PRs and closed issues. Maintained by the Guide role.
 
+### 2026-10-27
+
+- **PR #27**: feat(signoff): pin klt v0.8.0 and attest T1 item 10 (repo hygiene)
+- **Issue #21** (closed): T1 item 10 (repo hygiene): bump the signoff klt pin to one with --attest, add reproduce steps, attest item 10
+- **PR #28**: feat(rtl): stamp origin RTL and attest T1 item 1 at ARRAY_N = 8 (ASAP7 synthesis)
+- **Issue #22** (closed): T1 item 1 (design sources): stamp sky130-npu RTL at the ASAP7 array size and synthesize to asap7sc7p5t_28
+
 ### 2026-10-23
 
 - **PR #19**: docs: adopt asap7-riscv-core ASAP7 bring-up by reference (decision 0003)
