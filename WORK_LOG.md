@@ -4,6 +4,7 @@ Chronological record of merged PRs and closed issues. Maintained by the Guide ro
 
 ### 2026-10-27
 
+- **PR #33**: docs: install EE and market ratification keys for the ASAP7 NPU
 - **PR #27**: feat(signoff): pin klt v0.8.0 and attest T1 item 10 (repo hygiene)
 - **Issue #21** (closed): T1 item 10 (repo hygiene): bump the signoff klt pin to one with --attest, add reproduce steps, attest item 10
 - **PR #28**: feat(rtl): stamp origin RTL and attest T1 item 1 at ARRAY_N = 8 (ASAP7 synthesis)
