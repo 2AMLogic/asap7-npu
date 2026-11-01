@@ -22,7 +22,7 @@ run, committed with the run's report. Do not rewrite an existing file.
 | `record_id` | string | the file stem |
 | `corrects` | string or null | `record_id` this record supersedes |
 | `tool` | `"drc"` or `"lvs"` | |
-| `array_size` | string | `"16x16"`, `"32x32"` or `"64x64"` |
+| `array_size` | string | `"8x8"`, `"16x16"`, `"32x32"` or `"64x64"` |
 | `mode` | `"flat"` or `"hierarchical"` | |
 | `layout` | object | `path`, `sha256`, `shape_count`, `cell_count` (from `klt stats` / `klt cells`) |
 | `deck` | object | `name`, `content_hash` (from `klt deck info`), `rules_missing` (list, may be empty) |
