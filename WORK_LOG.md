@@ -2,6 +2,11 @@
 
 Chronological record of merged PRs and closed issues. Maintained by the Guide role.
 
+### 2026-11-01
+
+- **PR #34**: docs(spec): propose ratifying spec/npu.md on operator approval
+- **Issue #30** (closed): Install the two-key ratification path and ratify spec/npu.md
+
 ### 2026-10-31
 
 - **PR #37**: Bump Repo Skills 0.24.7 -> 0.25.1
