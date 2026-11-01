@@ -2,6 +2,10 @@
 
 Chronological record of merged PRs and closed issues. Maintained by the Guide role.
 
+### 2026-10-31
+
+- **PR #37**: Bump Repo Skills 0.24.7 -> 0.25.1
+
 ### 2026-10-27
 
 - **PR #33**: docs: install EE and market ratification keys for the ASAP7 NPU
