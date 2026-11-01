@@ -4,6 +4,8 @@ Chronological record of merged PRs and closed issues. Maintained by the Guide ro
 
 ### 2026-11-01
 
+- **PR #42**: docs: align README, CLAUDE.md and spec index with ratified 8x8 spec
+- **Issue #40** (closed): spec: tool-scaling-record Sweep still names 16x16/32x32/64x64; README, CLAUDE.md and spec/README still say nothing is ratified
 - **PR #34**: docs(spec): propose ratifying spec/npu.md on operator approval
 - **Issue #30** (closed): Install the two-key ratification path and ratify spec/npu.md
 
