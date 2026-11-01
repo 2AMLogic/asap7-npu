@@ -14,7 +14,7 @@ FinFET node for research and teaching; no fab manufactures it. This block is
 this repo is a tool result against a predictive model — there is no silicon,
 no shuttle and no measurement at the end of the ladder.
 
-**Status: specification phase.** The target spec is drafted in [`spec/npu.md`](spec/npu.md) with status *proposed*; it is not yet ratified. Nothing is designed yet.
+**Status: specification phase.** The spec in [`spec/npu.md`](spec/npu.md) is ratified (8 x 8 array; decision 0005, `65d9e28`). Nothing is designed yet.
 
 **Built agent-native.** Every specification, decision record, testbench, and
 line of documentation here is produced by AI agents working from a ratified
@@ -49,29 +49,29 @@ take its pinned setup rather than building a second one.
   represented by abstract macro views — the choice is a decision record), and
   anything that implies manufacture.
 
-## Target specification (DRAFT — engineering to ratify; see [`spec/npu.md`](spec/npu.md), issue #3)
+## Specification (ratified — see [`spec/npu.md`](spec/npu.md), decision [0005](spec/decisions/0005-ratify-npu-spec.md), `65d9e28`)
 
 All frequencies are predicted by STA against ASAP7's predictive models.
 
-| Parameter | Target | Fallback | Stretch |
-|---|---|---|---|
-| Architecture | `sky130-npu`'s, unmodified except the array parameter | — | — |
-| MAC array | 32 x 32 (1,024 MACs), INT8 x INT8 → INT32 | 16 x 16 | 64 x 64 |
-| On-chip memory | abstract macro views, banking scaled from the origin | — | — |
-| Predicted clock (post-route STA, slow corner) | 1 GHz | 500 MHz | 1.5 GHz |
-| Numerical correctness | bit-exact against the origin's golden model | — | — |
-| DRC | clean against the pinned ASAP7 deck, full chip, flat and hierarchical | hierarchical only, recorded | — |
-| LVS | clean | — | — |
-| Tool scaling | DRC/LVS runtime and peak memory recorded per array size | — | — |
+| Parameter | Value |
+|---|---|
+| Architecture | `sky130-npu`'s, unmodified except the array parameter |
+| MAC array | 8 x 8 (`ARRAY_N = 8`, 64 MACs), INT8 x INT8 → INT32 — the interim size, attested at this size only; no larger target, fallback or stretch is set |
+| On-chip memory | abstract macro views |
+| Predicted clock | values in `spec/npu.md` (post-route STA, SS corner), not claimed at any size |
+| Numerical correctness | bit-exact against the origin's golden model |
+| DRC / LVS | clean against the pinned ASAP7 deck, as stated in `spec/npu.md` |
+| Tool scaling | DRC/LVS runtime and peak memory recorded per array size |
 
 Maturity ladder: ASAP7 brought up under `klt` → spec ratified → origin RTL
-bit-exact at the scaled size → synthesized → placed and routed → DRC/LVS
-clean → post-route multi-corner STA closed at the target. **That is the end
-of the ladder; there is no fabrication step.** **Current position:
-spec drafted (proposed), ASAP7 pinned in
-[`spec/decisions/0001-asap7-pin-and-klt-bring-up.md`](spec/decisions/0001-asap7-pin-and-klt-bring-up.md),
-bring-up adopted from `asap7-riscv-core` in
-[`spec/decisions/0003-adopt-asap7-riscv-core-bring-up.md`](spec/decisions/0003-adopt-asap7-riscv-core-bring-up.md) (proposed); ratification pending.**
+bit-exact at the ratified size → synthesized → placed and routed → DRC/LVS
+clean → post-route multi-corner STA closed. **That is the end of the ladder;
+there is no fabrication step.** **Current position: spec ratified (decision
+0005, `65d9e28`); ASAP7 pinned in
+[`spec/decisions/0001-asap7-pin-and-klt-bring-up.md`](spec/decisions/0001-asap7-pin-and-klt-bring-up.md)
+(proposed), bring-up adopted from `asap7-riscv-core` in
+[`spec/decisions/0003-adopt-asap7-riscv-core-bring-up.md`](spec/decisions/0003-adopt-asap7-riscv-core-bring-up.md)
+(proposed). Decisions 0001-0004 are not ratified by 0005.**
 
 ## Repo layout
 

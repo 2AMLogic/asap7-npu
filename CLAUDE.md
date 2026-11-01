@@ -36,8 +36,10 @@ Open-source canary block: a large INT8 MAC array on ASAP7, a port of
   results are append-only evidence.
 - Spec changes go through `spec/` with a decision record; agents do not relax
   the ratified spec to make results pass.
-- **32 x 32 at a predicted 1 GHz post-route is the target.** 16 x 16 at
-  500 MHz is the fallback and 64 x 64 at 1.5 GHz is a stretch.
+- **The ratified array size is 8 x 8 (`ARRAY_N = 8`)** (decision 0005,
+  `65d9e28`). There is no 32 x 32 target, 16 x 16 fallback or 64 x 64 stretch;
+  the predicted clock values in `spec/npu.md` are unchanged and not claimed at
+  any size.
 
 <!-- BEGIN LOOM ORCHESTRATION -->
 This repository uses [Loom](https://github.com/rjwalters/loom) for AI-powered development orchestration — see the Loom repository for the full guide (roles, labels, worktrees, configuration). When installed, Loom also writes a locally-substituted copy of that guide to `.loom/CLAUDE.md`.

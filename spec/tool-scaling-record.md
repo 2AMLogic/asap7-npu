@@ -22,7 +22,7 @@ run, committed with the run's report. Do not rewrite an existing file.
 | `record_id` | string | the file stem |
 | `corrects` | string or null | `record_id` this record supersedes |
 | `tool` | `"drc"` or `"lvs"` | |
-| `array_size` | string | `"8x8"`, `"16x16"`, `"32x32"` or `"64x64"` |
+| `array_size` | string | `"8x8"`, `"16x16"`, `"32x32"` or `"64x64"` (larger values are legal record values, not targets) |
 | `mode` | `"flat"` or `"hierarchical"` | |
 | `layout` | object | `path`, `sha256`, `shape_count`, `cell_count` (from `klt stats` / `klt cells`) |
 | `deck` | object | `name`, `content_hash` (from `klt deck info`), `rules_missing` (list, may be empty) |
@@ -51,14 +51,17 @@ Each of these is run, flat and hierarchical, for both DRC and LVS:
 
 | Array size | Role |
 |---|---|
-| 16 x 16 | fallback |
-| 32 x 32 | target |
-| 64 x 64 | stretch |
+| 8 x 8 (`ARRAY_N = 8`) | ratified size (decision 0005, `65d9e28`) |
+
+Larger sizes (16 x 16, 32 x 32, 64 x 64) are not targets, fallbacks or
+stretches: `spec/npu.md` "Array size" sets none. They are legal `array_size`
+values so that a record can be written if a larger size is added by a new
+decision record; until then none is swept.
 
 A size that is not reached because an earlier size did not finish gets a
 `did_not_finish_*` record at the earlier size and a note in the later one; it
-is not silently omitted. Additional intermediate sizes (e.g. 8 x 8) may be
-added to locate where a run stops finishing; they follow the same format.
+is not silently omitted. Additional intermediate sizes may be added to locate
+where a run stops finishing; they follow the same format.
 
 ## Rules
 
