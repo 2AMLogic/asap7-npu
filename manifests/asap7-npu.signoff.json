@@ -6,6 +6,7 @@
   "t1_item_count": 11,
   "build_t1_item_count": 11,
   "t1_met_count": 2,
+  "t1_not_applicable_count": 1,
   "source_doc": "docs/design-evidence-tiers.md",
   "source_doc_content_hash": "sha256:a26b90262320d0fbd32b3f549a02b6300832706041797a559d8bf6bdb62efdc7",
   "build": {
@@ -112,10 +113,124 @@
       "partition": null,
       "text": "any accuracy, offset, or matching spec row is statistical; a corner matrix (or STA corner sweep) cannot validate it. This applies to whichever spec rows are actually statistical, regardless of block kind \u2014 most digital spec rows (functional correctness, Fmax, timing closure) are not, and a block whose spec has no statistical row must say so explicitly rather than omit the item. Where it does apply, MC runs need a recorded seed, sample count, a deterministic negative control, and results combined with (not instead of) process corners (#344). A `klt yield` JSON report \u2014 a yield estimate with its confidence interval, sample-size verdict, and Cpk/sigma-to-spec against the row's own limits \u2014 is the machine-checkable evidence for this item (`klt signoff`'s tier-verdict mode grades it the same way it grades the deterministic items above). **The campaign's own self-report is a grading input, not just a footnote** (issue #2467): a cited report whose `sample_size.verdict` is `insufficient` on any measurement renders `unmet` with `reason: \"undersized_sample\"`, and one whose declared negative control did not show the seeded degradation renders `unmet` with `reason: \"negative_control_not_detected\"` \u2014 the report's passing `status` answers only \"did every declared `target_yield` hold\", which a campaign declaring none can never fail. A campaign that declared **no** negative control at all is still `met`, but says so: `citation.yield_campaign.negative_control` reads `\"not_declared\"`, since `klt yield` itself treats that as a warning rather than a failure and whether it is acceptable for a given spec row is the claimant's call. See [`cli/signoff.md`](cli/signoff.md)'s \"Campaign discipline on item 6\". **This item's evidence verb needs the `yield` extra.** Unlike every other T1 item's evidence verb (`drc`, `lvs`, `extract`, `sim`, `pex`, `sta`, `functional-verification`, `erc`, `place-and-route`), `klt yield` requires the `klt_yield_native` Rust extension. It is published as the prebuilt `klt-yield-native` wheel (Linux x86_64, macOS arm64), reached by `pip install 'klayout-tools[yield]'`; a bare `pip install klayout-tools` and the git-pinned form do not include it. A consumer pinning a release that predates the first `klt-yield-native` publication, or on another platform, still needs a repo checkout with a Rust toolchain; see `docs/cli/yield.md`'s \"What the extra does and does not reach\" callout and `docs/releasing-native.md`. **When \"not applicable\" is legitimate** (issue #2865): a block whose ratified spec has *no* statistical row passes this item by a recorded \"not applicable\", not by a waiver at grant time and not by inventing a statistical claim. That holds only when the spec is ratified, a committed statement accounts for every spec row with the reason its row class is not statistical (for example \"timing rows are corner-bounded by STA at the PDK's characterised corners\"), and both are bound by content hash so editing either invalidates the claim. Any accuracy, offset, matching or yield row is statistical by definition: a spec carrying one \u2014 or a sigma, yield, Cpk or `3\u03c3`-style bound \u2014 cannot use the outcome and needs `klt yield` evidence for that row. The outcome is available to a digital partition only; an analog partition (including the analog half of a mixed-signal block) always requires Monte Carlo evidence. `klt signoff` reports it as `not_applicable`, never as `met`. **Several statistical rows, only some evidenced** (issue #2908): item 6 is a claim about *every* statistical row, so a manifest may declare the row set under `spec_rows.\"6\"` and cite one `klt yield` report per row set (`rows` on each citation). Item 6 grades `met` only when every declared row is covered by a passing citation against a ratified target. A row with no citation (`uncovered_rows`), a row declared a `gap` because no evidence can exist yet (`declared_gaps`), or a row declared `ratified: false` (`unratified_rows`, evidence against a proposed limit is provisional) grades `unmet` / `partial_coverage`, never `met`. Without a declaration the item grades as before; a `not_applicable` entry contradicts a declared row set and is `invalid_evidence`.",
       "notes": [],
-      "status": "unmet",
-      "reason": "no_evidence",
+      "status": "not_applicable",
+      "reason": null,
       "graded_by_build": true,
-      "citation": null
+      "citation": null,
+      "not_applicable": {
+        "spec": {
+          "file": "manifests/spec-rows.json",
+          "content_hash": "sha256:2763090719a431fad350771f230397dbe8b19fdf2190054b7380fea2b47d24ab",
+          "status": "ratified",
+          "row_count": 20
+        },
+        "statement": {
+          "file": "manifests/item6-na-statement.json",
+          "content_hash": "sha256:889def03616e1bc4cccad59c1935b78ac3c075328afb8142630b64f4d54a7f2e",
+          "rows": [
+            {
+              "id": "dataflow",
+              "class": "architectural-choice",
+              "reason": "Output-stationary dataflow is a decided architectural choice made at the origin; not a performance figure with spread."
+            },
+            {
+              "id": "arithmetic",
+              "class": "architectural-choice",
+              "reason": "INT8 x INT8 -> INT32 with requantization is a decided number format and rounding rule; there is no distribution to characterise."
+            },
+            {
+              "id": "operation-set",
+              "class": "architectural-choice",
+              "reason": "The supported operation set is a decided feature list; presence of an operation is not statistical."
+            },
+            {
+              "id": "host-interface",
+              "class": "architectural-choice",
+              "reason": "Wishbone B4 classic, 32-bit, slave is a decided protocol choice, checked by protocol-level testbenches rather than statistics."
+            },
+            {
+              "id": "array-size-parameter",
+              "class": "architectural-choice",
+              "reason": "ARRAY_N is a single decided RTL parameter (legal values {4, 8, 16}, stamped RTL implements 4 and 8); a chosen design size, not a measured quantity."
+            },
+            {
+              "id": "golden-model",
+              "class": "bit-exact",
+              "reason": "The integer golden model is an exact reference; results are compared bit for bit, so there is no tolerance or spread."
+            },
+            {
+              "id": "testbenches",
+              "class": "bit-exact",
+              "reason": "Testbenches are bit-exact against the golden model; any mismatch is a failure, with no yield or statistical spread."
+            },
+            {
+              "id": "array-size",
+              "class": "architectural-choice",
+              "reason": "8 x 8 (ARRAY_N = 8) is a ratified design size (decision 0005), not a sampled quantity."
+            },
+            {
+              "id": "on-chip-memory",
+              "class": "architectural-choice",
+              "reason": "Memory is represented by abstract macro views generated from a parameter table; the representation, banking and geometry are design choices, and the Liberty numbers are labelled placeholders, not a distribution."
+            },
+            {
+              "id": "predicted-clock",
+              "class": "sta-bounded",
+              "reason": "The predicted clock is a post-route STA figure bounded per corner by static timing analysis, which is deterministic for a given netlist, parasitics and Liberty views; it is not a Monte Carlo or distributional result."
+            },
+            {
+              "id": "pvt-corner-ss",
+              "class": "sta-bounded",
+              "reason": "SS (0.63 V / 100 C) is a static corner evaluated by deterministic STA against fixed Liberty files, not a sampled distribution."
+            },
+            {
+              "id": "pvt-corner-tt",
+              "class": "sta-bounded",
+              "reason": "TT (0.7 V / 25 C) is a static corner evaluated by deterministic STA against fixed Liberty files, not a sampled distribution."
+            },
+            {
+              "id": "pvt-corner-ff",
+              "class": "sta-bounded",
+              "reason": "FF (0.77 V / 0 C) is a provisional static corner evaluated by deterministic STA against fixed Liberty files; the SIMPLE-group header anomaly is disclosed in the spec and is a data question, not a statistical one."
+            },
+            {
+              "id": "no-statistical-row",
+              "class": "sta-bounded",
+              "reason": "Quoting spec/npu.md: \"This is a digital block closed on static corners; there is no statistical row.\" Closure is by static STA at the ratified PVT corners."
+            },
+            {
+              "id": "drc-lvs-deck-and-pin",
+              "class": "drc-lvs-pass-fail",
+              "reason": "The DRC deck hash, klt pin and LVS options are fixed, pinned inputs to deterministic rule checks."
+            },
+            {
+              "id": "drc-lvs-flat-hierarchical",
+              "class": "drc-lvs-pass-fail",
+              "reason": "Flat and hierarchical DRC/LVS runs are deterministic rule checks that either report zero violations or do not; runtime is recorded separately as a tool-scaling record."
+            },
+            {
+              "id": "drc-lvs-macros",
+              "class": "drc-lvs-pass-fail",
+              "reason": "Abstract macros are black boxes in DRC and LVS; this is a recorded deterministic-check limitation, not a statistical measure."
+            },
+            {
+              "id": "lvs-match",
+              "class": "drc-lvs-pass-fail",
+              "reason": "LVS is a deterministic netlist comparison: the extracted netlist matches the reference with no mismatches, or it does not."
+            },
+            {
+              "id": "waiver-rule",
+              "class": "drc-lvs-pass-fail",
+              "reason": "Waivers are committed, human-approved entries against deterministic DRC rule ids; the waiver count is an exact integer, not a statistic."
+            },
+            {
+              "id": "tool-scaling-records",
+              "class": "drc-lvs-pass-fail",
+              "reason": "Runtime and peak memory of deterministic DRC and LVS runs are recorded as evidence per array size; they are run records, not a sampled analog or statistical quantity."
+            }
+          ]
+        }
+      }
     },
     {
       "tier": "T1",

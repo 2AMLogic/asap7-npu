@@ -7,6 +7,8 @@ manifest against the T1 evidence tiers; CI re-grades it on every PR and push.
 |---|---|
 | `asap7-npu.json` | The block manifest. Hand-edited: cites the evidence for each T1 item. It starts with empty evidence, so every item grades `unmet`. |
 | `asap7-npu.signoff.json` | The graded report. **Generated; do not hand-edit.** |
+| `spec-rows.json` | Hand-edited: one `id` per requirement row of `spec/npu.md` for T1 item 6 (ids are slugs, defined in the file's `note`; the Open questions table is excluded). |
+| `item6-na-statement.json` | Hand-edited: one `{id, class, reason}` per spec row, same id set as `spec-rows.json`, saying why the row is not statistical. Both item 6 files are hash-cited from the manifest. |
 | `inventories/item-10.json` | Hand-edited attestation inventory for T1 item 10 (repo hygiene). |
 | `attestations/item-10.json` | The `klt signoff --attest 10` envelope. **Generated; do not hand-edit.** Its hash is cited from the manifest. |
 
@@ -46,3 +48,16 @@ netlist is **`ARRAY_N = 8`** (interim; decision 0004). Regenerate the envelope
 with `klt signoff --attest 1 --inventory manifests/item-1.inventory.json -o
 manifests/evidence/item1.json`, then update the `content_hash` in the manifest
 and regenerate the report.
+
+## Item 6 evidence (`not_applicable`)
+
+The ratified spec has no statistical row, so item 6 is discharged by a recorded
+`not_applicable`: `spec-rows.json` (the ratified rows) and
+`item6-na-statement.json` (a class and reason for each) are cited from the
+manifest under `evidence."6".not_applicable` with their `content_hash`. The
+`class` vocabulary is the origin's (`sky130-npu/manifests/`). Keep the two files
+in step with `spec/npu.md`: when a counted row is added or removed, change both
+files, recompute both hashes **after the final edit of each file**, then
+regenerate the report last. Avoid ids that sound statistical (`klt` flags them
+as `not_applicable_statistical_row`, which is why the Monte Carlo line's id is
+`no-statistical-row`).
