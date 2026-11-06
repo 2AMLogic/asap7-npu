@@ -94,6 +94,7 @@ CI runs both commands on every PR and push.
 | Result | Command | Expected |
 |---|---|---|
 | Gap-to-T1 report, `manifests/asap7-npu.signoff.json` | `klt signoff --manifest manifests/asap7-npu.json --format json > manifests/asap7-npu.signoff.json` | exit 3 ("not yet T1") until every item is met; the output must equal the committed report |
+| T1 item 6 (statistical claims) `not_applicable` statement, `manifests/spec-rows.json` + `manifests/item6-na-statement.json` | `klt signoff --manifest manifests/asap7-npu.json --format json` | item 6 grades `not_applicable`; both files hand-edited, hashes cited from the manifest, one id per `spec/npu.md` requirement row (same id set in both) |
 | T1 item 10 (repo hygiene) attestation, `manifests/attestations/item-10.json` | `klt signoff --attest 10 --inventory manifests/inventories/item-10.json --check manifests/attestations/item-10.json` | exit 0 (no drift); regenerate with `-o manifests/attestations/item-10.json` in place of `--check` |
 
 Exit 3 from the first command means "not yet T1" and is expected today. See

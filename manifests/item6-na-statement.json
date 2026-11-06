@@ -1,0 +1,104 @@
+{
+  "rows": [
+    {
+      "id": "dataflow",
+      "class": "architectural-choice",
+      "reason": "Output-stationary dataflow is a decided architectural choice made at the origin; not a performance figure with spread."
+    },
+    {
+      "id": "arithmetic",
+      "class": "architectural-choice",
+      "reason": "INT8 x INT8 -> INT32 with requantization is a decided number format and rounding rule; there is no distribution to characterise."
+    },
+    {
+      "id": "operation-set",
+      "class": "architectural-choice",
+      "reason": "The supported operation set is a decided feature list; presence of an operation is not statistical."
+    },
+    {
+      "id": "host-interface",
+      "class": "architectural-choice",
+      "reason": "Wishbone B4 classic, 32-bit, slave is a decided protocol choice, checked by protocol-level testbenches rather than statistics."
+    },
+    {
+      "id": "array-size-parameter",
+      "class": "architectural-choice",
+      "reason": "ARRAY_N is a single decided RTL parameter (legal values {4, 8, 16}, stamped RTL implements 4 and 8); a chosen design size, not a measured quantity."
+    },
+    {
+      "id": "golden-model",
+      "class": "bit-exact",
+      "reason": "The integer golden model is an exact reference; results are compared bit for bit, so there is no tolerance or spread."
+    },
+    {
+      "id": "testbenches",
+      "class": "bit-exact",
+      "reason": "Testbenches are bit-exact against the golden model; any mismatch is a failure, with no yield or statistical spread."
+    },
+    {
+      "id": "array-size",
+      "class": "architectural-choice",
+      "reason": "8 x 8 (ARRAY_N = 8) is a ratified design size (decision 0005), not a sampled quantity."
+    },
+    {
+      "id": "on-chip-memory",
+      "class": "architectural-choice",
+      "reason": "Memory is represented by abstract macro views generated from a parameter table; the representation, banking and geometry are design choices, and the Liberty numbers are labelled placeholders, not a distribution."
+    },
+    {
+      "id": "predicted-clock",
+      "class": "sta-bounded",
+      "reason": "The predicted clock is a post-route STA figure bounded per corner by static timing analysis, which is deterministic for a given netlist, parasitics and Liberty views; it is not a Monte Carlo or distributional result."
+    },
+    {
+      "id": "pvt-corner-ss",
+      "class": "sta-bounded",
+      "reason": "SS (0.63 V / 100 C) is a static corner evaluated by deterministic STA against fixed Liberty files, not a sampled distribution."
+    },
+    {
+      "id": "pvt-corner-tt",
+      "class": "sta-bounded",
+      "reason": "TT (0.7 V / 25 C) is a static corner evaluated by deterministic STA against fixed Liberty files, not a sampled distribution."
+    },
+    {
+      "id": "pvt-corner-ff",
+      "class": "sta-bounded",
+      "reason": "FF (0.77 V / 0 C) is a provisional static corner evaluated by deterministic STA against fixed Liberty files; the SIMPLE-group header anomaly is disclosed in the spec and is a data question, not a statistical one."
+    },
+    {
+      "id": "no-statistical-row",
+      "class": "sta-bounded",
+      "reason": "Quoting spec/npu.md: \"This is a digital block closed on static corners; there is no statistical row.\" Closure is by static STA at the ratified PVT corners."
+    },
+    {
+      "id": "drc-lvs-deck-and-pin",
+      "class": "drc-lvs-pass-fail",
+      "reason": "The DRC deck hash, klt pin and LVS options are fixed, pinned inputs to deterministic rule checks."
+    },
+    {
+      "id": "drc-lvs-flat-hierarchical",
+      "class": "drc-lvs-pass-fail",
+      "reason": "Flat and hierarchical DRC/LVS runs are deterministic rule checks that either report zero violations or do not; runtime is recorded separately as a tool-scaling record."
+    },
+    {
+      "id": "drc-lvs-macros",
+      "class": "drc-lvs-pass-fail",
+      "reason": "Abstract macros are black boxes in DRC and LVS; this is a recorded deterministic-check limitation, not a statistical measure."
+    },
+    {
+      "id": "lvs-match",
+      "class": "drc-lvs-pass-fail",
+      "reason": "LVS is a deterministic netlist comparison: the extracted netlist matches the reference with no mismatches, or it does not."
+    },
+    {
+      "id": "waiver-rule",
+      "class": "drc-lvs-pass-fail",
+      "reason": "Waivers are committed, human-approved entries against deterministic DRC rule ids; the waiver count is an exact integer, not a statistic."
+    },
+    {
+      "id": "tool-scaling-records",
+      "class": "drc-lvs-pass-fail",
+      "reason": "Runtime and peak memory of deterministic DRC and LVS runs are recorded as evidence per array size; they are run records, not a sampled analog or statistical quantity."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "status": "ratified",
+  "note": "One id per requirement row of spec/npu.md (last touched by commit 5a3353f): the 'Inherited from sky130-npu' table (7 rows), then Array size (1), On-chip memory (1), Predicted clock (1), PVT corners SS/TT/FF (3), the no-statistical-row line, whose id avoids the word Monte Carlo because klt flags statistical-sounding ids (1), the DRC / LVS acceptance list (5: deck and pin, flat and hierarchical, macros, LVS match, waiver rule) and Tool-scaling records (1). The spec has no id column, so the ids are slugs of the row or item name, defined here. Excluded: the 'Open questions' table (a list of unanswered questions with the run that answers each, not a requirement), the Predictive PDK statement and Out of scope prose. This file must change whenever a counted row is added or removed in spec/npu.md.",
+  "source": {
+    "file": "spec/npu.md",
+    "section": "Inherited; Re-derived for ASAP7",
+    "commit": "5a3353f"
+  },
+  "rows": [
+    {
+      "id": "dataflow"
+    },
+    {
+      "id": "arithmetic"
+    },
+    {
+      "id": "operation-set"
+    },
+    {
+      "id": "host-interface"
+    },
+    {
+      "id": "array-size-parameter"
+    },
+    {
+      "id": "golden-model"
+    },
+    {
+      "id": "testbenches"
+    },
+    {
+      "id": "array-size"
+    },
+    {
+      "id": "on-chip-memory"
+    },
+    {
+      "id": "predicted-clock"
+    },
+    {
+      "id": "pvt-corner-ss"
+    },
+    {
+      "id": "pvt-corner-tt"
+    },
+    {
+      "id": "pvt-corner-ff"
+    },
+    {
+      "id": "no-statistical-row"
+    },
+    {
+      "id": "drc-lvs-deck-and-pin"
+    },
+    {
+      "id": "drc-lvs-flat-hierarchical"
+    },
+    {
+      "id": "drc-lvs-macros"
+    },
+    {
+      "id": "lvs-match"
+    },
+    {
+      "id": "waiver-rule"
+    },
+    {
+      "id": "tool-scaling-records"
+    }
+  ]
+}

@@ -6,6 +6,18 @@
       "file": "manifests/evidence/item1.json",
       "content_hash": "sha256:727fa9858cd0b7af9e0a0cc99c89d0a52d0e826cfcbc15e84f7665d6a82c090d"
     },
+    "6": {
+      "not_applicable": {
+        "spec": {
+          "file": "manifests/spec-rows.json",
+          "content_hash": "sha256:2763090719a431fad350771f230397dbe8b19fdf2190054b7380fea2b47d24ab"
+        },
+        "statement": {
+          "file": "manifests/item6-na-statement.json",
+          "content_hash": "sha256:889def03616e1bc4cccad59c1935b78ac3c075328afb8142630b64f4d54a7f2e"
+        }
+      }
+    },
     "10": {
       "file": "manifests/attestations/item-10.json",
       "content_hash": "sha256:411a976d2e92d49a73dc79e2a24fc5eb572ad4cd0c9d8692e8705035b787315b"
