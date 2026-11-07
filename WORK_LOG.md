@@ -2,6 +2,11 @@
 
 Chronological record of merged PRs and closed issues. Maintained by the Guide role.
 
+### 2026-11-06
+
+- **PR #45**: feat: record item 6 not_applicable evidence from spec rows
+- **Issue #44** (closed): T1 item 6: record the hash-bound not_applicable statement for the ratified ASAP7 NPU spec
+
 ### 2026-11-01
 
 - **PR #42**: docs: align README, CLAUDE.md and spec index with ratified 8x8 spec
