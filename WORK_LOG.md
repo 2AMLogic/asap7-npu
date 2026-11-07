@@ -2,6 +2,10 @@
 
 Chronological record of merged PRs and closed issues. Maintained by the Guide role.
 
+### 2026-11-07
+
+- **PR #47**: Bump Repo Skills 0.25.1 -> 0.25.10
+
 ### 2026-11-06
 
 - **PR #45**: feat: record item 6 not_applicable evidence from spec rows
