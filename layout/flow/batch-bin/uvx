@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# `uvx --from PKG python ARGS...` stand-in for the batch image, which has no uv:
+# the repo-script job pip-installs PKG (submit with --pip py7zr) and this runs
+# the same python call with the job's python3. Only that call shape is handled.
+set -euo pipefail
+[[ "${1:-}" == "--from" && "${3:-}" == "python" ]] || { echo "batch-bin/uvx: unsupported call: $*" >&2; exit 2; }
+shift 3
+exec python3 "$@"
