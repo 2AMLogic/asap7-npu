@@ -2,6 +2,13 @@
 
 Chronological record of merged PRs and closed issues. Maintained by the Guide role.
 
+### 2026-11-13
+
+- **PR #59**: chore: drop sim/ and flow/ ignore rules, ignore rtl/synth/.klt scratch
+- **Issue #57** (closed): Remove sim/ and flow/ ignore rules that match nothing in this repo; ignore the synth .klt scratch directory instead
+- **PR #56**: docs: drop removed array-size tiers from market-key rubric and rtl README
+- **Issue #53** (closed): Remove leftover 16 x 16 fallback / 64 x 64 stretch text from the market-key rubric and rtl/README
+
 ### 2026-11-12
 
 - **PR #49**: Bump Repo Skills 0.25.10 -> 0.26.1

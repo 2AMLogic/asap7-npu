@@ -56,6 +56,8 @@ Issues carrying `loom:curated`.
 ## Proposed (Architect / Hermit)
 
 - **#51**: Consolidate T1 item 1 attestation files onto the item-10 manifests layout *(hermit)*
+- **#54**: Remove the klt-version clause from rtl/synth/check-fresh.sh: item 1 freshness fails under the pinned klt *(hermit)*
+- **#58**: Remove package.json: its only script points at a Loom script that no longer exists *(hermit)*
 
 ## Epics
 
@@ -73,6 +75,6 @@ _None._
 | PRs awaiting review | 0 |
 | Approved PRs awaiting merge | 0 |
 | Curated | 3 |
-| Architect / Hermit proposals | 1 |
+| Architect / Hermit proposals | 3 |
 | Active epics | 0 |
 <!-- guide:plan-body:end -->
