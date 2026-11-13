@@ -37,8 +37,8 @@ target is honestly marked proposed (not yet verified) when the *proposed value
 itself*, if achieved, would clear the floor: "unverified" and "uncompetitive"
 are separate facts, and the review states both rather than picking one.
 
-The 16 x 16 at 500 MHz fallback and the 64 x 64 at 1.5 GHz stretch are
-scored as what they are, a fallback and a stretch: a fallback that is
+The predicted clock's 500 MHz fallback and 1.5 GHz stretch are scored as
+what they are, a fallback and a stretch: a fallback that is
 `adequate-for-catalog` while the target is `competitive` is an expected
 result, not a defect.
 

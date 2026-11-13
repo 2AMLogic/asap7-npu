@@ -36,3 +36,6 @@ section's `RATIFY-KEY` marker line and the
 - No product, price, customer or availability may be assumed; price rows
   removed.
 - The two-operating-modes section is removed (this copy has one mode).
+- `rubric.md`'s fallback-and-stretch scoring note names the predicted clock's
+  500 MHz fallback and 1.5 GHz stretch only. It no longer ties them to array
+  sizes: decision 0005 ratified 8 x 8 and set no fallback or stretch size.
