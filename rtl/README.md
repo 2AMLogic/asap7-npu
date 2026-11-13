@@ -9,7 +9,8 @@ Predicted results against ASAP7, a predictive PDK. This block is never fabricate
 | `synth/` | `synth-request.json` (`klt synthesize`, `ARRAY_N = 8`), `synth.sh`, `make-pdk-root.sh`, `check-fresh.sh`, and append-only `records/`. |
 
 Only `ARRAY_N` 4 and 8 elaborate in the origin RTL, so the item-1 netlist is
-**`ARRAY_N = 8`**, an interim below the 16 x 16 fallback (decision 0004).
+**`ARRAY_N = 8`**, which is also the ratified array size (decisions 0004 and
+0005).
 
 Regenerate: `rtl/synth/synth.sh` (about 4 minutes, 320 MB, single job), then copy the
 result into a new dated directory under `rtl/synth/records/`. Check freshness:
