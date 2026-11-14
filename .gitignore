@@ -9,6 +9,8 @@ sim_build/
 results.xml
 # klt synthesis run directory (rtl/synth/synth.sh); scratch, not committed
 rtl/synth/.klt/
+# place-and-route run directory (layout/flow/run.sh); scratch, not committed
+layout/flow/work/
 # local klt install; never committed
 .venv/
 # >>> loom-managed (do not edit) >>>

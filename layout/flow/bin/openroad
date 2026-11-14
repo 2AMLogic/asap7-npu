@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Thread-capped `openroad` shim for run.sh: the host's openroad is a Docker
+# wrapper with no thread limit, and this host is shared (at most 2 threads).
+# Put this directory first on PATH; it calls the next `openroad` on PATH.
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REAL="$(PATH="$(printf '%s' "$PATH" | tr ':' '\n' | grep -vxF "$HERE" | paste -sd:)" command -v openroad)"
+exec "$REAL" -threads "${OPENROAD_THREADS:-2}" "$@"
