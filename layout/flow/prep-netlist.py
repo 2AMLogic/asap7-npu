@@ -32,7 +32,7 @@ text = open(src, encoding="utf-8").read()
 defined = set(re.findall(r"^module\s+(\\?\S+)", text, re.M))
 # `<module> #( .P(v), ... ) <name> (` where <name> is plain or an escaped identifier
 pat = re.compile(
-    r"^(?P<ind>[ \t]*)(?P<mod>\w+)\s+#\(\s*(?:\.\w+\([^)]*\)\s*,?\s*)+\)\s*"
+    r"^(?P<ind>[ \t]*)(?P<mod>\w+)\s+#\(\s*(?:\.\w+\([^)]*\)\s*(?:,\s*)?)+\)\s*"
     r"(?P<name>\\\S+|\w+)(?P<sp>\s*)\(",
     re.M,
 )
