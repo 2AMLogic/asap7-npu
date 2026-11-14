@@ -14,7 +14,13 @@ FinFET node for research and teaching; no fab manufactures it. This block is
 this repo is a tool result against a predictive model — there is no silicon,
 no shuttle and no measurement at the end of the ladder.
 
-**Status: specification phase.** The spec in [`spec/npu.md`](spec/npu.md) is ratified (8 x 8 array; decision 0005, `65d9e28`). Nothing is designed yet.
+The spec in [`spec/npu.md`](spec/npu.md) is ratified (8 x 8 array; decision
+[0005](spec/decisions/0005-ratify-npu-spec.md), `65d9e28`). This README does
+not restate repo state: the graded T1 state is
+[`manifests/asap7-npu.signoff.json`](manifests/asap7-npu.signoff.json),
+regenerated and diffed against the committed copy by the `signoff` workflow on
+every PR and push, and each decision record's status is in
+[`spec/README.md`](spec/README.md).
 
 **Built agent-native.** Every specification, decision record, testbench, and
 line of documentation here is produced by AI agents working from a ratified
@@ -66,12 +72,8 @@ All frequencies are predicted by STA against ASAP7's predictive models.
 Maturity ladder: ASAP7 brought up under `klt` → spec ratified → origin RTL
 bit-exact at the ratified size → synthesized → placed and routed → DRC/LVS
 clean → post-route multi-corner STA closed. **That is the end of the ladder;
-there is no fabrication step.** **Current position: spec ratified (decision
-0005, `65d9e28`); ASAP7 pinned in
-[`spec/decisions/0001-asap7-pin-and-klt-bring-up.md`](spec/decisions/0001-asap7-pin-and-klt-bring-up.md)
-(proposed), bring-up adopted from `asap7-riscv-core` in
-[`spec/decisions/0003-adopt-asap7-riscv-core-bring-up.md`](spec/decisions/0003-adopt-asap7-riscv-core-bring-up.md)
-(proposed). Decisions 0001-0004 are not ratified by 0005.**
+there is no fabrication step.** **Decisions 0001-0004 are not ratified by
+0005** — see [`spec/README.md`](spec/README.md) for each record's status.
 
 ## Repo layout
 
