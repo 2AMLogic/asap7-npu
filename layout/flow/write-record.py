@@ -5,7 +5,8 @@ Called by run.sh: copies the routed GDS, DEF and post-route netlist that the klt
 report names into OUT, rewrites the report without host paths, and writes
 OUT/run.json (outcome, wall time and peak memory from `/usr/bin/time -v`, host
 and load). A run that did not finish still gets run.json with the elapsed time
-and last peak memory.
+and last peak memory -- or with null timings, if /usr/bin/time was itself
+killed and never wrote time-v.txt.
 """
 import hashlib
 import json
@@ -22,7 +23,12 @@ except Exception:
     rep = {}
 status = "finished" if rc == "0" and rep.get("status") == "ok" else "did_not_finish"
 
-tv = open(os.path.join(out, "time-v.txt")).read()
+# Absent when /usr/bin/time was killed before writing it: a run that did not
+# finish still gets run.json, with null timings.
+try:
+    tv = open(os.path.join(out, "time-v.txt")).read()
+except Exception:
+    tv = ""
 
 
 def tv_get(pattern):

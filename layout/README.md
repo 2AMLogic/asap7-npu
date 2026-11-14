@@ -18,6 +18,7 @@ a result, and no timing figure is stated.
 | `flow/write-record.py` | Writes the run record: outcome, wall time, peak memory, host and load. A run that does **not** finish is recorded too. |
 | `flow/bin/openroad` | PATH shim that caps `openroad` at `OPENROAD_THREADS` (this host is shared). Mode `755`; inert without `+x`. |
 | `flow/batch-route.sh`, `flow/batch-bin/uvx` | Run the same flow as a `repo-script` batch-fleet job, where one long P&R unit fits. |
+| `flow/tests/` | Regression tests for the two steps that used to fail silently: the netlist prep post-conditions and the record written when `/usr/bin/time` left no output. Plain `python3 -I`, standard library only; run by `.github/workflows/flow-tests.yml`. |
 | `macros/npu_sram_bank.lef` | Abstract macro view (`MACRO`/`PIN`/`OBS`) for the memory bank: no internal layout and no bitcell, per decision 0002. **Generated; do not hand-edit.** |
 
 ## Run it

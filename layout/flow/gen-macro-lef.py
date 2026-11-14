@@ -60,7 +60,7 @@ w("")
 w("MACRO npu_sram_bank")
 w("  CLASS BLOCK ;")
 w("  ORIGIN 0 0 ;")
-w(f"  FOREIGN npu_sram_bank 0 0 ;")
+w("  FOREIGN npu_sram_bank 0 0 ;")
 w(f"  SIZE {f(W)} BY {f(H)} ;")
 w("  SYMMETRY X Y ;")
 

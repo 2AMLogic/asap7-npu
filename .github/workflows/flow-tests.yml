@@ -1,0 +1,44 @@
+# .github/workflows/flow-tests.yml
+#
+# Run the layout/flow regression tests on every pull request and on pushes to
+# main.
+#
+# These pin the post-conditions of the netlist-prep and record-writing steps --
+# the places where the flow used to fail silently: prep-netlist.py wrote its
+# input through unchanged with "0 renames" and exit 0 when its rewrite pattern
+# matched nothing, so the run failed three steps later in OpenSTA and the
+# diagnosis named OpenROAD instead of the step that did nothing; and run.sh's
+# record step aborted on a missing time-v.txt, losing the did-not-finish record
+# it exists to write.
+#
+# Deliberately NOT a step in signoff.yml: that workflow is scoped to manifest
+# re-grading and spends a `uv tool install` of the pinned klt to get there,
+# which these tests do not need. They are plain `python3 -I` over text fixtures
+# plus the stamped synthesis netlist already in the repo -- no PDK, no klt, no
+# OpenROAD, no batch-fleet job, and no dependency to pin.
+#
+# No path filter: a filtered-out job looks the same as a passing one, and these
+# run in seconds.
+
+name: flow-tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  flow-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: prep-netlist.py post-conditions
+        run: python3 -I layout/flow/tests/test-prep-netlist.py
+
+      - name: run.sh step 5 and write-record.py
+        run: python3 -I layout/flow/tests/test-write-record.py
