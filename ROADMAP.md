@@ -6,7 +6,7 @@ An INT8 multiply-accumulate array ported from
 Nothing here is fabricated; every figure is a tool result against a predictive
 model, and timing is "predicted".
 
-Status as of 2026-11-13, `main` @ `5619c8a`.
+Status as of 2026-11-14, `main` @ `af4b608`.
 
 The graded state of record is
 [`manifests/asap7-npu.signoff.json`](manifests/asap7-npu.signoff.json), which CI
@@ -42,24 +42,24 @@ defined in `spec/tool-scaling-record.md` (proposed; no run recorded yet).
 `layout/` and `verification/` hold only placeholder READMEs on `main`.
 
 Not on `main`: branch `feature/issue-23` carries a place-and-route flow
-(`layout/flow/`) and an abstract memory macro LEF (`layout/macros/`). Per the
-builder notes on #23, floorplan, placement and clock-tree synthesis finished at
-`ARRAY_N = 8`; the route has never finished.
+(`layout/flow/`) and an abstract memory macro LEF (`layout/macros/`), and PR #66
+proposes landing both without the route. Per the builder notes on #23, floorplan,
+placement and clock-tree synthesis finished at `ARRAY_N = 8`; the route has never
+finished.
+
+Landed since the previous snapshot (`5619c8a` to `af4b608`): the README no longer
+carries hand-maintained status prose and points at the signoff report and
+`spec/README.md` instead, and item 10 is re-attested (#62, PR #63).
 
 ## Now
 
-1. **Remove the README's hand-maintained status prose** (#62, `loom:issue`).
-   Done when `README.md` no longer says "Nothing is designed yet" or carries a
-   "Current position" sentence, points at the signoff report and
-   `spec/README.md` instead, and item 10 is re-attested so the `signoff`
-   workflow passes (README is in the item-10 inventory).
-2. **Land the place-and-route flow and the memory macro LEF on `main`, without
-   the route** (no issue; seed 1). The flow is the reusable part of #23 and
-   today exists only on an unmerged branch. Done when `layout/flow/` and
-   `layout/macros/npu_sram_bank.lef` are on `main`, `gen-macro-lef.py`
-   reproduces the committed LEF byte for byte, `layout/README.md` documents the
-   one-command invocation, and no routed artifact or item-2 claim is added.
-   #23 then shrinks to "run it and attest".
+1. **Land the place-and-route flow and the memory macro LEF on `main`, without
+   the route** (#65, `loom:building`; PR #66 open and awaiting review). The flow
+   is the reusable part of #23 and until #66 merges exists only on unmerged
+   branches. Done when `layout/flow/` and `layout/macros/npu_sram_bank.lef` are
+   on `main`, `gen-macro-lef.py` reproduces the committed LEF byte for byte,
+   `layout/README.md` documents the one-command invocation, and no routed
+   artifact or item-2 claim is added. #23 then shrinks to "run it and attest".
 
 ## Next
 
@@ -117,8 +117,9 @@ builder notes on #23, floorplan, placement and clock-tree synthesis finished at
   `rtl/synth/check-fresh.sh` keeps its `klt`-version clause (#51 waits on it),
   and whether `package.json` is removed.
 
-One issue (#62) is dispatchable today. Everything on the critical path is
-parked.
+No issue is dispatchable today: no open issue carries `loom:issue`. The one
+`## Now` item is already claimed (#65 is `loom:building`, with PR #66 awaiting
+review), and everything on the critical path is parked.
 
 ## Not planned
 
