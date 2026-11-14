@@ -2,6 +2,11 @@
 
 Chronological record of merged PRs and closed issues. Maintained by the Guide role.
 
+### 2026-11-14
+
+- **PR #63**: docs: replace README's hand-maintained status prose with pointers to the graded report
+- **Issue #62** (closed): Remove README's hand-maintained status and Current position prose: it duplicates the CI-graded signoff report and is already stale
+
 ### 2026-11-13
 
 - **PR #59**: chore: drop sim/ and flow/ ignore rules, ignore rtl/synth/.klt scratch
