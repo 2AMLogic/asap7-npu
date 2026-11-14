@@ -32,12 +32,14 @@ _None._
 Issues currently being built (`loom:building`).
 
 - **#16**: T1 item 9: stamp sky130-npu's verification harness, golden model and workloads with a reuse.lock.json pin
+- **#65**: Land the place-and-route flow and the abstract memory macro LEF on main, without the route
 
 ## PRs Awaiting Review
 
 PRs waiting on Judge (`loom:review-requested`).
 
-_None._
+- **#64**: docs: roadmap as of 2026-11-13
+- **#66**: feat(layout): land the OpenROAD place-and-route flow and the abstract macro LEF
 
 ## Approved (Awaiting Merge)
 
@@ -52,12 +54,14 @@ Issues carrying `loom:curated`.
 - **#4**: Track the gap to T1 (klayout-tools design-evidence-tiers.md) *(curated)*
 - **#16**: T1 item 9: stamp sky130-npu's verification harness, golden model and workloads with a reuse.lock.json pin *(curated)*
 - **#23**: T1 item 2 (layout): routed NPU GDS on ASAP7 from a committed OpenROAD flow with abstract memory macros *(curated)*
+- **#65**: Land the place-and-route flow and the abstract memory macro LEF on main, without the route *(curated)*
 
 ## Proposed (Architect / Hermit)
 
 - **#51**: Consolidate T1 item 1 attestation files onto the item-10 manifests layout *(hermit)*
 - **#54**: Remove the klt-version clause from rtl/synth/check-fresh.sh: item 1 freshness fails under the pinned klt *(hermit)*
 - **#58**: Remove package.json: its only script points at a Loom script that no longer exists *(hermit)*
+- **#68**: Remove the no-op content_hash and report steps from manifests/README.md's re-attest recipes: the cited hash is the inventory's *(hermit)*
 
 ## Epics
 
@@ -71,10 +75,10 @@ _None._
 | Very important | 1 |
 | Important | 0 |
 | Ready (`loom:issue`) | 0 |
-| In Progress (`loom:building`) | 1 |
-| PRs awaiting review | 0 |
+| In Progress (`loom:building`) | 2 |
+| PRs awaiting review | 2 |
 | Approved PRs awaiting merge | 0 |
-| Curated | 3 |
-| Architect / Hermit proposals | 3 |
+| Curated | 4 |
+| Architect / Hermit proposals | 4 |
 | Active epics | 0 |
 <!-- guide:plan-body:end -->
