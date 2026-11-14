@@ -4,6 +4,12 @@ Chronological record of merged PRs and closed issues. Maintained by the Guide ro
 
 ### 2026-11-14
 
+- **PR #70**: docs(manifests): split the re-attest recipes by what actually changed
+- **PR #66**: feat(layout): land the OpenROAD place-and-route flow and the abstract macro LEF
+- **PR #64**: docs: roadmap as of 2026-11-13
+- **Issue #68** (closed): Remove the no-op content_hash and report steps from manifests/README.md's re-attest recipes: the cited hash is the inventory's
+- **Issue #67** (closed): gen-macro-lef.py cites the footprint rule to decision 0005, which has no footprint rule (it is 0002)
+- **Issue #65** (closed): Land the place-and-route flow and the abstract memory macro LEF on main, without the route
 - **PR #63**: docs: replace README's hand-maintained status prose with pointers to the graded report
 - **Issue #62** (closed): Remove README's hand-maintained status and Current position prose: it duplicates the CI-graded signoff report and is already stale
 
