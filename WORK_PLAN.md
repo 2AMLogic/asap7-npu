@@ -13,13 +13,13 @@ _None._
 
 `loom:very-important` (one counts per workspace); every stage takes these first.
 
-_None._
+- **#23**: T1 item 2 (layout): routed NPU GDS on ASAP7 from a committed OpenROAD flow with abstract memory macros
 
 ## Important
 
 `loom:important`; taken before unlabelled work.
 
-- **#23**: T1 item 2 (layout): routed NPU GDS on ASAP7 from a committed OpenROAD flow with abstract memory macros
+_None._
 
 ## Ready
 
@@ -68,8 +68,8 @@ _None._
 | Bucket | Count |
 |------|-------|
 | Operator merge-risk holds | 0 |
-| Very important | 0 |
-| Important | 1 |
+| Very important | 1 |
+| Important | 0 |
 | Ready (`loom:issue`) | 0 |
 | In Progress (`loom:building`) | 1 |
 | PRs awaiting review | 0 |
