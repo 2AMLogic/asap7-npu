@@ -26,6 +26,9 @@
 #   KLT              klt command (default: klt)
 #   RECORD_DATE      record date label (default: today, UTC)
 #   FLOW_TIMEOUT_S   stop the run after this many seconds (default 7200)
+#   OPENROAD_THREADS thread cap applied by bin/openroad (default 2, the
+#                    shared-worker cap; batch-route.sh raises it to the
+#                    instance's core count)
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -88,7 +91,13 @@ LOAD_AFTER="$(cut -d' ' -f1-3 /proc/loadavg)"
 
 # 5. record
 mkdir -p "${OUT}"
-cp "${WORK}/request.json" "${WORK}/renames.json" "${WORK}/time-v.txt" "${WORK}/tie.ys" "${OUT}/"
+cp "${WORK}/request.json" "${WORK}/renames.json" "${WORK}/tie.ys" "${OUT}/"
+# /usr/bin/time writes time-v.txt only if it ran to completion itself; if it
+# was killed outright the file is absent, and under `set -e` a cp that names
+# it would abort the run here -- losing the did-not-finish record this step
+# exists to write, and leaving ${OUT} half-written -- which the append-only
+# guard above then refuses to overwrite on a retry at the same RECORD_DATE.
+if [[ -f "${WORK}/time-v.txt" ]]; then cp "${WORK}/time-v.txt" "${OUT}/"; fi
 cp "${WORK}/npu_top_pnr.v" "${OUT}/npu_top_pnr_in.v"
 cp "${WORK}/klt.stderr" "${OUT}/klt.stderr.txt"
 python3 -I "${HERE}/write-record.py" "${WORK}/report.json" "${OUT}" "${RC}" "${START}" "${END}" \
