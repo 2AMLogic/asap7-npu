@@ -4,6 +4,10 @@ Chronological record of merged PRs and closed issues. Maintained by the Guide ro
 
 ### 2026-11-14
 
+- **PR #75**: docs: drop duplicate item 6 row from README Reproduce table
+- **PR #74**: fix(flow): fail prep-netlist.py when its rewrite pattern matches nothing
+- **Issue #73** (closed): prep-netlist.py succeeds silently with 0 renames when its pattern matches nothing
+- **Issue #72** (closed): Remove README's T1 item 6 row from the Reproduce table: it repeats row 1's command and manifests/README.md
 - **PR #70**: docs(manifests): split the re-attest recipes by what actually changed
 - **PR #66**: feat(layout): land the OpenROAD place-and-route flow and the abstract macro LEF
 - **PR #64**: docs: roadmap as of 2026-11-13
