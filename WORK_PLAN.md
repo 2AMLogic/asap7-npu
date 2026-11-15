@@ -32,20 +32,18 @@ _None._
 Issues currently being built (`loom:building`).
 
 - **#16**: T1 item 9: stamp sky130-npu's verification harness, golden model and workloads with a reuse.lock.json pin
-- **#72**: Remove README's T1 item 6 row from the Reproduce table: it repeats row 1's command and manifests/README.md
-- **#73**: prep-netlist.py succeeds silently with 0 renames when its pattern matches nothing
 
 ## PRs Awaiting Review
 
 PRs waiting on Judge (`loom:review-requested`).
 
-- **#75**: docs: drop duplicate item 6 row from README Reproduce table
+_None._
 
 ## Approved (Awaiting Merge)
 
 PRs that passed review and are queued for Champion auto-merge (`loom:pr`).
 
-- **#74**: fix(flow): fail prep-netlist.py when its rewrite pattern matches nothing
+_None._
 
 ## Proposed
 
@@ -54,7 +52,6 @@ Issues carrying `loom:curated`.
 - **#4**: Track the gap to T1 (klayout-tools design-evidence-tiers.md) *(curated)*
 - **#16**: T1 item 9: stamp sky130-npu's verification harness, golden model and workloads with a reuse.lock.json pin *(curated)*
 - **#23**: T1 item 2 (layout): routed NPU GDS on ASAP7 from a committed OpenROAD flow with abstract memory macros *(curated)*
-- **#73**: prep-netlist.py succeeds silently with 0 renames when its pattern matches nothing *(curated)*
 
 ## Proposed (Architect / Hermit)
 
@@ -74,10 +71,10 @@ _None._
 | Very important | 1 |
 | Important | 0 |
 | Ready (`loom:issue`) | 0 |
-| In Progress (`loom:building`) | 3 |
-| PRs awaiting review | 1 |
-| Approved PRs awaiting merge | 1 |
-| Curated | 4 |
+| In Progress (`loom:building`) | 1 |
+| PRs awaiting review | 0 |
+| Approved PRs awaiting merge | 0 |
+| Curated | 3 |
 | Architect / Hermit proposals | 3 |
 | Active epics | 0 |
 <!-- guide:plan-body:end -->
