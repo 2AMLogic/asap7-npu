@@ -13,7 +13,7 @@ _None._
 
 `loom:very-important` (one counts per workspace); every stage takes these first.
 
-- **#23**: T1 item 2 (layout): routed NPU GDS on ASAP7 from a committed OpenROAD flow with abstract memory macros
+- **#23**: T1 item 2 (layout): routed NPU GDS on ASAP7 from a committed OpenROAD flow with abstract memory macros *(held)*
 
 ## Important
 
@@ -23,7 +23,7 @@ _None._
 
 ## Ready
 
-Human-approved issues ready for implementation (`loom:issue`).
+Human-approved issues (`loom:issue`) ready for implementation — excluding held (`loom:blocked`/`loom:operator`/`loom:frozen`), `loom:building`, and issues closed by an open `loom:pr` PR (listed under Approved).
 
 _None._
 
@@ -51,13 +51,13 @@ Issues carrying `loom:curated`.
 
 - **#4**: Track the gap to T1 (klayout-tools design-evidence-tiers.md) *(curated)*
 - **#16**: T1 item 9: stamp sky130-npu's verification harness, golden model and workloads with a reuse.lock.json pin *(curated)*
-- **#23**: T1 item 2 (layout): routed NPU GDS on ASAP7 from a committed OpenROAD flow with abstract memory macros *(curated)*
+- **#23**: T1 item 2 (layout): routed NPU GDS on ASAP7 from a committed OpenROAD flow with abstract memory macros *(curated)* *(held)*
 
 ## Proposed (Architect / Hermit)
 
-- **#51**: Consolidate T1 item 1 attestation files onto the item-10 manifests layout *(hermit)*
-- **#54**: Remove the klt-version clause from rtl/synth/check-fresh.sh: item 1 freshness fails under the pinned klt *(hermit)*
-- **#58**: Remove package.json: its only script points at a Loom script that no longer exists *(hermit)*
+- **#51**: Consolidate T1 item 1 attestation files onto the item-10 manifests layout *(hermit)* *(held)*
+- **#54**: Remove the klt-version clause from rtl/synth/check-fresh.sh: item 1 freshness fails under the pinned klt *(hermit)* *(held)*
+- **#58**: Remove package.json: its only script points at a Loom script that no longer exists *(hermit)* *(held)*
 
 ## Epics
 
@@ -70,7 +70,7 @@ _None._
 | Operator merge-risk holds | 0 |
 | Very important | 1 |
 | Important | 0 |
-| Ready (`loom:issue`) | 0 |
+| Ready (`loom:issue`, net of holds/building/merge-pending) | 0 |
 | In Progress (`loom:building`) | 1 |
 | PRs awaiting review | 0 |
 | Approved PRs awaiting merge | 0 |
