@@ -1,3 +1,15 @@
+# asap7-npu — agent instructions (AGENTS.md runtimes)
+
+Full repository instructions live in [`CLAUDE.md`](CLAUDE.md); read them
+before making changes. One repo-specific gate worth naming here: a change
+that edits a file listed under `hygiene` in
+[`manifests/inventories/item-10.json`](manifests/inventories/item-10.json)
+(`README.md`, `LICENSE`, `.github/workflows/signoff.yml`) must regenerate
+`manifests/attestations/item-10.json` with the `klt` pin recorded in
+[`.github/workflows/signoff.yml`](.github/workflows/signoff.yml) and stage
+the envelope together with the edited file, or CI's signoff gate fails.
+Recipe: [`manifests/README.md`](manifests/README.md) § Regenerate.
+
 <!-- BEGIN LOOM ORCHESTRATION (AGENTS) -->
 This repository uses [Loom](https://github.com/rjwalters/loom) for AI-powered development orchestration (dual-runtime: Claude Code reads `CLAUDE.md`; OpenAI Codex CLI and other AGENTS.md-aware runtimes read this file). See the Loom repository for the full guide (roles, labels, worktrees, configuration). When installed, Loom also writes a locally-substituted copy of the runtime-neutral guide to `.loom/AGENTS.md`.
 
