@@ -40,5 +40,8 @@ jobs:
       - name: prep-netlist.py post-conditions
         run: python3 -I layout/flow/tests/test-prep-netlist.py
 
+      - name: gen-macro-lib.py placeholder views
+        run: python3 -I layout/flow/tests/test-gen-macro-lib.py
+
       - name: run.sh step 5 and write-record.py
         run: python3 -I layout/flow/tests/test-write-record.py

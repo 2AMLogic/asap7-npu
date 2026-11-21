@@ -11,6 +11,8 @@ results.xml
 rtl/synth/.klt/
 # place-and-route run directory (layout/flow/run.sh); scratch, not committed
 layout/flow/work/
+# pre-route STA run directory (layout/flow/sta-preroute.sh); scratch, not committed
+layout/flow/sta-work/
 # local klt install; never committed
 .venv/
 # >>> loom-managed (do not edit) >>>
