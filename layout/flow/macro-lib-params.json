@@ -3,7 +3,6 @@
   "macro": "npu_sram_bank",
   "depth_words": 1024,
   "word_bits": 32,
-  "area_um2": 1495.502,
   "corners": {
     "SS": { "suffix": "ss", "nom_voltage": 0.63, "nom_temperature": 100 },
     "TT": { "suffix": "tt", "nom_voltage": 0.7, "nom_temperature": 25 },
@@ -11,7 +10,7 @@
   },
   "rule": {
     "name": "lib-anchored-placeholder-v1",
-    "statement": "Every timing number is a placeholder, never a memory measurement. Each corner's numbers derive from one committed anchor delay (BUFx4_ASAP7_75t_R cell_rise at table position index_1[3]/index_2[3] of the pinned asap7sc7p5t_28 RVT decks) times the fixed multipliers below: clk->q x10 (a placeholder read path of decode + sense + mux + out-drive, ten buffer stages at the library's own speed scale), setup x1, hold x0.2, min_pulse_width x2, max_transition x4, output transition x3. minimum_period = clk->q + setup. Pin capacitances and the output max_capacitance are corner-invariant placeholders. The anchors differ per corner, so the macro tracks the standard-cell library it is timed beside. This mirrors by reference what the origin's analytical macro corners are (sky130-npu#159: algebraic factors on a baseline, not a re-characterisation).",
+    "statement": "Every timing number is a placeholder, never a memory measurement. Each corner's numbers derive from one committed anchor delay (BUFx4_ASAP7_75t_R cell_rise at table position index_1[3]/index_2[3] of the pinned asap7sc7p5t_28 RVT decks) times the fixed multipliers below: clk->q x10 (a placeholder read path of decode + sense + mux + out-drive, ten buffer stages at the library's own speed scale), setup x1, hold x0.2, min_pulse_width x2, max_transition x4, output transition x3. minimum_period = clk->q + setup. Pin capacitances and the output max_capacitance are corner-invariant placeholders. The cell area is not an independent input: the generator reads the committed LEF abstract's SIZE (layout/macros/npu_sram_bank.lef) and emits its width x height product, corner-invariant like the pin capacitances, so the Liberty area cannot drift from the LEF footprint. The anchors differ per corner, so the macro tracks the standard-cell library it is timed beside. This mirrors by reference what the origin's analytical macro corners are (sky130-npu#159: algebraic factors on a baseline, not a re-characterisation).",
     "anchor": {
       "cell": "BUFx4_ASAP7_75t_R",
       "group": "INVBUF_RVT",
@@ -37,6 +36,6 @@
     },
     "pin_capacitance_pf": { "input": 0.01, "clk": 0.02 },
     "output_max_capacitance_pf": 0.5,
-    "corner_invariant": ["pin_capacitance_pf", "output_max_capacitance_pf", "area_um2"]
+    "corner_invariant": ["pin_capacitance_pf", "output_max_capacitance_pf"]
   }
 }
