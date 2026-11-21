@@ -41,6 +41,29 @@ Open-source canary block: a large INT8 MAC array on ASAP7, a port of
   the predicted clock values in `spec/npu.md` are unchanged and not claimed at
   any size.
 
+## Inventoried hygiene files: re-attest item 10 with the edit
+
+`manifests/inventories/item-10.json` lists the `hygiene` files whose hashes
+the envelope `manifests/attestations/item-10.json` pins: `README.md`,
+`LICENSE` and `.github/workflows/signoff.yml`. A change that edits one of
+them must regenerate the envelope in the same change — CI re-attests item 10
+and `--check`s the committed envelope, so a stale one reds the signoff gate.
+In the worktree holding the edit, run the re-attest with the `klt` pin
+recorded in [`.github/workflows/signoff.yml`](.github/workflows/signoff.yml)
+(the pin's one home — substitute it for `<sha>`):
+
+```
+uvx --from "klayout-tools @ git+https://github.com/2AMLogic/klayout-tools@<sha>" \
+  klt signoff --attest 10 --inventory manifests/inventories/item-10.json \
+  -o manifests/attestations/item-10.json
+```
+
+Then stage `manifests/attestations/item-10.json` together with the edited
+file in one commit — the pair is what CI verifies. A change confined to
+non-inventoried files (`WORK_PLAN.md`, `WORK_LOG.md`, code, `spec/`) needs
+no item-10 update. Full recipe, including the case where the inventory
+itself changed: [`manifests/README.md`](manifests/README.md) § Regenerate.
+
 <!-- BEGIN LOOM ORCHESTRATION -->
 This repository uses [Loom](https://github.com/rjwalters/loom) for AI-powered development orchestration — see the Loom repository for the full guide (roles, labels, worktrees, configuration). When installed, Loom also writes a locally-substituted copy of that guide to `.loom/CLAUDE.md`.
 
