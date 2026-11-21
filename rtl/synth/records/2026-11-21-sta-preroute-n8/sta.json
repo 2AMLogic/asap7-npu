@@ -1,0 +1,1001 @@
+{
+  "schema_version": 2,
+  "engine": "openroad",
+  "engine_version": "26Q3-1510-g6cb3f2b704",
+  "hdl_toplevel": "npu_top",
+  "status": "ok",
+  "def_path": null,
+  "verilog_path": {
+    "path": "layout/flow/sta-work/sta-inputs/npu_top_sta.v",
+    "scope": "repo"
+  },
+  "geometry_source": "netlist_estimate",
+  "wire_load_model": null,
+  "wire_load_mode": null,
+  "macros": [
+    {
+      "cell": "npu_sram_bank",
+      "lef": "/home/ubuntu/GitHub/asap7-npu/.loom/worktrees/issue-80/layout/flow/sta-work/sta-inputs/npu_sram_bank.lef",
+      "lib": {
+        "RVT_FF": "/home/ubuntu/GitHub/asap7-npu/.loom/worktrees/issue-80/layout/flow/sta-work/sta-inputs/npu_sram_bank_ff.lib",
+        "RVT_SS": "/home/ubuntu/GitHub/asap7-npu/.loom/worktrees/issue-80/layout/flow/sta-work/sta-inputs/npu_sram_bank_ss.lib",
+        "RVT_TT": "/home/ubuntu/GitHub/asap7-npu/.loom/worktrees/issue-80/layout/flow/sta-work/sta-inputs/npu_sram_bank_tt.lib"
+      },
+      "gds": null,
+      "verilog_blackbox": null
+    }
+  ],
+  "blackboxed_cells": [],
+  "clock_mode": "ideal",
+  "clock_targets": {
+    "clocks": [
+      {
+        "port": "clk",
+        "period_ns": 2.0
+      }
+    ],
+    "clock_groups": []
+  },
+  "clock_uncertainty": {
+    "applied": false
+  },
+  "spef_path": null,
+  "provenance": {
+    "klt_version": "0.9.3.dev2575+g6bd18bbc8637",
+    "klt_git_commit": "6bd18bbc8637f6d767b3c24e77bd5db7a39e4bbe",
+    "klt_reinstall_spec": "klayout-tools @ git+https://github.com/2AMLogic/klayout-tools@6bd18bbc8637f6d767b3c24e77bd5db7a39e4bbe",
+    "klayout_version": "0.30.12",
+    "pdk": {
+      "name": "asap7",
+      "source": "--pdk-root flag",
+      "version": null
+    },
+    "deck": null,
+    "input": {
+      "content_hash": "sha256:029e386dc49369ac7ae33fdbbb56c7dd0d30683fcd8f1fdb646b727442adffad",
+      "role": "netlist"
+    }
+  },
+  "corners": [
+    {
+      "corner": "RVT_SS",
+      "engine_log": {
+        "invocation_id": "ab101965ff8d4d7ba9c9261610d841aa",
+        "script_name": "sta_npu_top_sta__RVT_SS.tcl",
+        "script_path": {
+          "path": "layout/flow/sta-work/.klt/sta/sta_npu_top_sta__RVT_SS.tcl",
+          "scope": "repo"
+        },
+        "script_sha256": "bb4a5cb9692813f1abd93a69ecb6beef0c39479cc5272138637b0d8441a93ca9",
+        "metrics_path": {
+          "path": "layout/flow/sta-work/.klt/sta/npu_top_sta__RVT_SS_metrics.json",
+          "scope": "repo"
+        },
+        "outcome": "exited",
+        "returncode": 0,
+        "directory": {
+          "path": "layout/flow/sta-work/.klt/sta/openroad-logs/ab101965ff8d4d7ba9c9261610d841aa",
+          "scope": "repo"
+        },
+        "stdout_path": {
+          "path": "layout/flow/sta-work/.klt/sta/openroad-logs/ab101965ff8d4d7ba9c9261610d841aa/stdout.log",
+          "scope": "repo"
+        },
+        "stderr_path": {
+          "path": "layout/flow/sta-work/.klt/sta/openroad-logs/ab101965ff8d4d7ba9c9261610d841aa/stderr.log",
+          "scope": "repo"
+        },
+        "metadata_path": {
+          "path": "layout/flow/sta-work/.klt/sta/openroad-logs/ab101965ff8d4d7ba9c9261610d841aa/invocation.json",
+          "scope": "repo"
+        },
+        "retention_errors": []
+      },
+      "worst_slack_ns": -7.37974,
+      "total_negative_slack_ns": -15784.9,
+      "worst_hold_slack_ns": -0.0056,
+      "total_negative_hold_slack_ns": -0.33857,
+      "fmax_mhz": 106.613,
+      "timing_status": "constrained",
+      "constraint_completeness": {
+        "status": "complete",
+        "unconstrained_endpoints": {
+          "status": "ok",
+          "count": 0,
+          "sample": [],
+          "truncated": false,
+          "reason": null
+        },
+        "unclocked_registers": {
+          "status": "ok",
+          "count": 0,
+          "sample": [],
+          "truncated": false,
+          "reason": null
+        },
+        "sample_limit": 20
+      },
+      "setup_violation_count": 2472,
+      "hold_violation_count": 68,
+      "worst_setup_path": {
+        "status": "ok",
+        "check_type": "setup",
+        "engine_check_role": "setup",
+        "startpoint": "u_ctrl/_2310_/QN",
+        "endpoint": "u_array/g_row[0].g_col[0].u_pe/_1587_/D",
+        "slack_ns": -7.37974,
+        "consistent_with_aggregate": true,
+        "reason": null
+      },
+      "worst_hold_path": {
+        "status": "ok",
+        "check_type": "hold",
+        "engine_check_role": "hold",
+        "startpoint": "rst",
+        "endpoint": "u_host/_3778_/D",
+        "slack_ns": -0.0056,
+        "consistent_with_aggregate": true,
+        "reason": null
+      },
+      "worst_paths_by_group": {
+        "status": "ok",
+        "reason": null,
+        "setup": [
+          {
+            "check_type": "setup",
+            "engine_check_role": "setup",
+            "startpoint": "u_ctrl/_2310_/QN",
+            "endpoint": "u_array/g_row[0].g_col[0].u_pe/_1587_/D",
+            "slack_ns": -7.37974
+          }
+        ],
+        "hold": [
+          {
+            "check_type": "hold",
+            "engine_check_role": "hold",
+            "startpoint": "rst",
+            "endpoint": "u_host/_3778_/D",
+            "slack_ns": -0.0056
+          }
+        ]
+      },
+      "clock_skew_ns": 0,
+      "estimated_power_mw": 7.2347,
+      "power_basis": {
+        "activity_source": "engine_default",
+        "activity": null,
+        "duty": null,
+        "parasitics": "estimate_only"
+      },
+      "instance_paths": {
+        "u_banks/g_bank_0_u_bank": {
+          "into": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_ctrl/_2310_/QN",
+              "endpoint": "u_banks/g_bank_0_u_bank/rw_addr[9]",
+              "slack_ns": -5.3469,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "wb_sel_i[0]",
+              "endpoint": "u_banks/g_bank_0_u_bank/rw_we[0]",
+              "slack_ns": 0.09103,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          },
+          "out_of": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_banks/g_bank_0_u_bank/r_rdata[1]",
+              "endpoint": "_8244_/D",
+              "slack_ns": 0.98267,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "u_banks/g_bank_0_u_bank/r_rdata[1]",
+              "endpoint": "_8308_/D",
+              "slack_ns": 0.89833,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          }
+        },
+        "u_banks/g_bank_1_u_bank": {
+          "into": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_ctrl/_2310_/QN",
+              "endpoint": "u_banks/g_bank_1_u_bank/rw_addr[9]",
+              "slack_ns": -5.42119,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "wb_adr_i[2]",
+              "endpoint": "u_banks/g_bank_1_u_bank/rw_addr[0]",
+              "slack_ns": 0.06591,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          },
+          "out_of": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_banks/g_bank_1_u_bank/r_rdata[0]",
+              "endpoint": "_8307_/D",
+              "slack_ns": 0.98364,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "u_banks/g_bank_1_u_bank/r_rdata[3]",
+              "endpoint": "_8310_/D",
+              "slack_ns": 0.89845,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          }
+        },
+        "u_banks/g_bank_2_u_bank": {
+          "into": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_ctrl/_2310_/QN",
+              "endpoint": "u_banks/g_bank_2_u_bank/rw_addr[8]",
+              "slack_ns": -5.36279,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "wb_sel_i[0]",
+              "endpoint": "u_banks/g_bank_2_u_bank/rw_we[0]",
+              "slack_ns": 0.09103,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          },
+          "out_of": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_banks/g_bank_2_u_bank/r_rdata[1]",
+              "endpoint": "_8244_/D",
+              "slack_ns": 0.98145,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "u_banks/g_bank_2_u_bank/r_rdata[0]",
+              "endpoint": "_8307_/D",
+              "slack_ns": 0.89833,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          }
+        },
+        "u_banks/g_bank_3_u_bank": {
+          "into": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_ctrl/_2310_/QN",
+              "endpoint": "u_banks/g_bank_3_u_bank/rw_addr[8]",
+              "slack_ns": -5.37549,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "wb_sel_i[0]",
+              "endpoint": "u_banks/g_bank_3_u_bank/rw_we[0]",
+              "slack_ns": 0.09103,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          },
+          "out_of": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_banks/g_bank_3_u_bank/r_rdata[7]",
+              "endpoint": "_8250_/D",
+              "slack_ns": 0.98392,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "u_banks/g_bank_3_u_bank/r_rdata[0]",
+              "endpoint": "_8307_/D",
+              "slack_ns": 0.9018,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          }
+        }
+      },
+      "spef_annotation": null,
+      "electrical_checks": null,
+      "clock_propagation": null,
+      "sdf": null,
+      "deck": {
+        "name": "asap7sc7p5t_28__RVT_SS",
+        "content_hash": "sha256:e2ac8d1e5730ba8f55ff2979c44a6572784684e86b58def4e3ba9f06928b2edc",
+        "released": false,
+        "path": {
+          "path": null,
+          "scope": "external"
+        }
+      }
+    },
+    {
+      "corner": "RVT_TT",
+      "engine_log": {
+        "invocation_id": "0cf1261cf7b240d19847ce60e10f2b18",
+        "script_name": "sta_npu_top_sta__RVT_TT.tcl",
+        "script_path": {
+          "path": "layout/flow/sta-work/.klt/sta/sta_npu_top_sta__RVT_TT.tcl",
+          "scope": "repo"
+        },
+        "script_sha256": "37a8999bf7e6d189b77f6334c5170561905d195a9d12dcf98e4df3703d0340e4",
+        "metrics_path": {
+          "path": "layout/flow/sta-work/.klt/sta/npu_top_sta__RVT_TT_metrics.json",
+          "scope": "repo"
+        },
+        "outcome": "exited",
+        "returncode": 0,
+        "directory": {
+          "path": "layout/flow/sta-work/.klt/sta/openroad-logs/0cf1261cf7b240d19847ce60e10f2b18",
+          "scope": "repo"
+        },
+        "stdout_path": {
+          "path": "layout/flow/sta-work/.klt/sta/openroad-logs/0cf1261cf7b240d19847ce60e10f2b18/stdout.log",
+          "scope": "repo"
+        },
+        "stderr_path": {
+          "path": "layout/flow/sta-work/.klt/sta/openroad-logs/0cf1261cf7b240d19847ce60e10f2b18/stderr.log",
+          "scope": "repo"
+        },
+        "metadata_path": {
+          "path": "layout/flow/sta-work/.klt/sta/openroad-logs/0cf1261cf7b240d19847ce60e10f2b18/invocation.json",
+          "scope": "repo"
+        },
+        "retention_errors": []
+      },
+      "worst_slack_ns": -3.92305,
+      "total_negative_slack_ns": -8248.69,
+      "worst_hold_slack_ns": -0.00318,
+      "total_negative_hold_slack_ns": -0.18763,
+      "fmax_mhz": 168.832,
+      "timing_status": "constrained",
+      "constraint_completeness": {
+        "status": "complete",
+        "unconstrained_endpoints": {
+          "status": "ok",
+          "count": 0,
+          "sample": [],
+          "truncated": false,
+          "reason": null
+        },
+        "unclocked_registers": {
+          "status": "ok",
+          "count": 0,
+          "sample": [],
+          "truncated": false,
+          "reason": null
+        },
+        "sample_limit": 20
+      },
+      "setup_violation_count": 2284,
+      "hold_violation_count": 68,
+      "worst_setup_path": {
+        "status": "ok",
+        "check_type": "setup",
+        "engine_check_role": "setup",
+        "startpoint": "u_ctrl/_2310_/QN",
+        "endpoint": "u_array/g_row[0].g_col[0].u_pe/_1587_/D",
+        "slack_ns": -3.92305,
+        "consistent_with_aggregate": true,
+        "reason": null
+      },
+      "worst_hold_path": {
+        "status": "ok",
+        "check_type": "hold",
+        "engine_check_role": "hold",
+        "startpoint": "rst",
+        "endpoint": "u_host/_3778_/D",
+        "slack_ns": -0.00318,
+        "consistent_with_aggregate": true,
+        "reason": null
+      },
+      "worst_paths_by_group": {
+        "status": "ok",
+        "reason": null,
+        "setup": [
+          {
+            "check_type": "setup",
+            "engine_check_role": "setup",
+            "startpoint": "u_ctrl/_2310_/QN",
+            "endpoint": "u_array/g_row[0].g_col[0].u_pe/_1587_/D",
+            "slack_ns": -3.92305
+          }
+        ],
+        "hold": [
+          {
+            "check_type": "hold",
+            "engine_check_role": "hold",
+            "startpoint": "rst",
+            "endpoint": "u_host/_3778_/D",
+            "slack_ns": -0.00318
+          }
+        ]
+      },
+      "clock_skew_ns": 0,
+      "estimated_power_mw": 9.1407,
+      "power_basis": {
+        "activity_source": "engine_default",
+        "activity": null,
+        "duty": null,
+        "parasitics": "estimate_only"
+      },
+      "instance_paths": {
+        "u_banks/g_bank_0_u_bank": {
+          "into": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_ctrl/_2310_/QN",
+              "endpoint": "u_banks/g_bank_0_u_bank/rw_addr[9]",
+              "slack_ns": -2.55132,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "wb_sel_i[0]",
+              "endpoint": "u_banks/g_bank_0_u_bank/rw_we[0]",
+              "slack_ns": 0.05931,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          },
+          "out_of": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_banks/g_bank_0_u_bank/r_rdata[1]",
+              "endpoint": "_8244_/D",
+              "slack_ns": 1.30117,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "output_hold",
+              "engine_check_role": "output hold",
+              "startpoint": "u_banks/g_bank_0_u_bank/rw_rdata[17]",
+              "endpoint": "wb_dat_o[17]",
+              "slack_ns": 0.63454,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          }
+        },
+        "u_banks/g_bank_1_u_bank": {
+          "into": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_ctrl/_2310_/QN",
+              "endpoint": "u_banks/g_bank_1_u_bank/rw_addr[9]",
+              "slack_ns": -2.59611,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "wb_adr_i[2]",
+              "endpoint": "u_banks/g_bank_1_u_bank/rw_addr[0]",
+              "slack_ns": 0.04245,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          },
+          "out_of": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_banks/g_bank_1_u_bank/r_rdata[0]",
+              "endpoint": "_8307_/D",
+              "slack_ns": 1.30187,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "output_hold",
+              "engine_check_role": "output hold",
+              "startpoint": "u_banks/g_bank_1_u_bank/rw_rdata[11]",
+              "endpoint": "wb_dat_o[11]",
+              "slack_ns": 0.63449,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          }
+        },
+        "u_banks/g_bank_2_u_bank": {
+          "into": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_ctrl/_2310_/QN",
+              "endpoint": "u_banks/g_bank_2_u_bank/rw_addr[8]",
+              "slack_ns": -2.56167,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "wb_sel_i[0]",
+              "endpoint": "u_banks/g_bank_2_u_bank/rw_we[0]",
+              "slack_ns": 0.05931,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          },
+          "out_of": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_banks/g_bank_2_u_bank/r_rdata[1]",
+              "endpoint": "_8244_/D",
+              "slack_ns": 1.30066,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "u_banks/g_bank_2_u_bank/r_rdata[0]",
+              "endpoint": "_8307_/D",
+              "slack_ns": 0.63462,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          }
+        },
+        "u_banks/g_bank_3_u_bank": {
+          "into": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_ctrl/_2310_/QN",
+              "endpoint": "u_banks/g_bank_3_u_bank/rw_addr[8]",
+              "slack_ns": -2.56602,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "wb_sel_i[0]",
+              "endpoint": "u_banks/g_bank_3_u_bank/rw_we[0]",
+              "slack_ns": 0.05931,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          },
+          "out_of": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_banks/g_bank_3_u_bank/r_rdata[7]",
+              "endpoint": "_8250_/D",
+              "slack_ns": 1.30205,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "output_hold",
+              "engine_check_role": "output hold",
+              "startpoint": "u_banks/g_bank_3_u_bank/rw_rdata[0]",
+              "endpoint": "wb_dat_o[0]",
+              "slack_ns": 0.63449,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          }
+        }
+      },
+      "spef_annotation": null,
+      "electrical_checks": null,
+      "clock_propagation": null,
+      "sdf": null,
+      "deck": {
+        "name": "asap7sc7p5t_28__RVT_TT",
+        "content_hash": "sha256:2a5e3beb957dfadb9157430d2d255277e257e8152ab4f01eef6953c95f3756da",
+        "released": false,
+        "path": {
+          "path": null,
+          "scope": "external"
+        }
+      }
+    },
+    {
+      "corner": "RVT_FF",
+      "engine_log": {
+        "invocation_id": "85154dff44f04b659b1ed84ad7621043",
+        "script_name": "sta_npu_top_sta__RVT_FF.tcl",
+        "script_path": {
+          "path": "layout/flow/sta-work/.klt/sta/sta_npu_top_sta__RVT_FF.tcl",
+          "scope": "repo"
+        },
+        "script_sha256": "48267b99b2724297cba0c256d1c0e4f3c92b7533f795de80a6322b71a0b91b61",
+        "metrics_path": {
+          "path": "layout/flow/sta-work/.klt/sta/npu_top_sta__RVT_FF_metrics.json",
+          "scope": "repo"
+        },
+        "outcome": "exited",
+        "returncode": 0,
+        "directory": {
+          "path": "layout/flow/sta-work/.klt/sta/openroad-logs/85154dff44f04b659b1ed84ad7621043",
+          "scope": "repo"
+        },
+        "stdout_path": {
+          "path": "layout/flow/sta-work/.klt/sta/openroad-logs/85154dff44f04b659b1ed84ad7621043/stdout.log",
+          "scope": "repo"
+        },
+        "stderr_path": {
+          "path": "layout/flow/sta-work/.klt/sta/openroad-logs/85154dff44f04b659b1ed84ad7621043/stderr.log",
+          "scope": "repo"
+        },
+        "metadata_path": {
+          "path": "layout/flow/sta-work/.klt/sta/openroad-logs/85154dff44f04b659b1ed84ad7621043/invocation.json",
+          "scope": "repo"
+        },
+        "retention_errors": []
+      },
+      "worst_slack_ns": -2.38163,
+      "total_negative_slack_ns": -4942.47,
+      "worst_hold_slack_ns": -0.00399,
+      "total_negative_hold_slack_ns": -0.25399,
+      "fmax_mhz": 228.226,
+      "timing_status": "constrained",
+      "constraint_completeness": {
+        "status": "complete",
+        "unconstrained_endpoints": {
+          "status": "ok",
+          "count": 0,
+          "sample": [],
+          "truncated": false,
+          "reason": null
+        },
+        "unclocked_registers": {
+          "status": "ok",
+          "count": 0,
+          "sample": [],
+          "truncated": false,
+          "reason": null
+        },
+        "sample_limit": 20
+      },
+      "setup_violation_count": 2284,
+      "hold_violation_count": 68,
+      "worst_setup_path": {
+        "status": "ok",
+        "check_type": "setup",
+        "engine_check_role": "setup",
+        "startpoint": "u_ctrl/_2310_/QN",
+        "endpoint": "u_array/g_row[0].g_col[0].u_pe/_1587_/D",
+        "slack_ns": -2.38163,
+        "consistent_with_aggregate": true,
+        "reason": null
+      },
+      "worst_hold_path": {
+        "status": "ok",
+        "check_type": "hold",
+        "engine_check_role": "hold",
+        "startpoint": "rst",
+        "endpoint": "u_host/_3652_/D",
+        "slack_ns": -0.00399,
+        "consistent_with_aggregate": true,
+        "reason": null
+      },
+      "worst_paths_by_group": {
+        "status": "ok",
+        "reason": null,
+        "setup": [
+          {
+            "check_type": "setup",
+            "engine_check_role": "setup",
+            "startpoint": "u_ctrl/_2310_/QN",
+            "endpoint": "u_array/g_row[0].g_col[0].u_pe/_1587_/D",
+            "slack_ns": -2.38163
+          }
+        ],
+        "hold": [
+          {
+            "check_type": "hold",
+            "engine_check_role": "hold",
+            "startpoint": "rst",
+            "endpoint": "u_host/_3652_/D",
+            "slack_ns": -0.00399
+          }
+        ]
+      },
+      "clock_skew_ns": 0,
+      "estimated_power_mw": 11.7549,
+      "power_basis": {
+        "activity_source": "engine_default",
+        "activity": null,
+        "duty": null,
+        "parasitics": "estimate_only"
+      },
+      "instance_paths": {
+        "u_banks/g_bank_0_u_bank": {
+          "into": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_ctrl/_2310_/QN",
+              "endpoint": "u_banks/g_bank_0_u_bank/rw_addr[9]",
+              "slack_ns": -1.27692,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "wb_dat_i[0]",
+              "endpoint": "u_banks/g_bank_0_u_bank/rw_wdata[0]",
+              "slack_ns": 0.04169,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          },
+          "out_of": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_banks/g_bank_0_u_bank/r_rdata[1]",
+              "endpoint": "_8244_/D",
+              "slack_ns": 1.48442,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "output_hold",
+              "engine_check_role": "output hold",
+              "startpoint": "u_banks/g_bank_0_u_bank/rw_rdata[17]",
+              "endpoint": "wb_dat_o[17]",
+              "slack_ns": 0.47027,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          }
+        },
+        "u_banks/g_bank_1_u_bank": {
+          "into": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_ctrl/_2310_/QN",
+              "endpoint": "u_banks/g_bank_1_u_bank/rw_addr[8]",
+              "slack_ns": -1.31393,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "wb_adr_i[2]",
+              "endpoint": "u_banks/g_bank_1_u_bank/rw_addr[0]",
+              "slack_ns": 0.02912,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          },
+          "out_of": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_banks/g_bank_1_u_bank/r_rdata[0]",
+              "endpoint": "_8307_/D",
+              "slack_ns": 1.48467,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "output_hold",
+              "engine_check_role": "output hold",
+              "startpoint": "u_banks/g_bank_1_u_bank/rw_rdata[11]",
+              "endpoint": "wb_dat_o[11]",
+              "slack_ns": 0.47022,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          }
+        },
+        "u_banks/g_bank_2_u_bank": {
+          "into": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_ctrl/_2310_/QN",
+              "endpoint": "u_banks/g_bank_2_u_bank/rw_addr[8]",
+              "slack_ns": -1.28405,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "wb_dat_i[0]",
+              "endpoint": "u_banks/g_bank_2_u_bank/rw_wdata[0]",
+              "slack_ns": 0.04169,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          },
+          "out_of": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_banks/g_bank_2_u_bank/r_rdata[1]",
+              "endpoint": "_8244_/D",
+              "slack_ns": 1.48365,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "output_hold",
+              "engine_check_role": "output hold",
+              "startpoint": "u_banks/g_bank_2_u_bank/rw_rdata[10]",
+              "endpoint": "wb_dat_o[10]",
+              "slack_ns": 0.4707,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          }
+        },
+        "u_banks/g_bank_3_u_bank": {
+          "into": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_ctrl/_2310_/QN",
+              "endpoint": "u_banks/g_bank_3_u_bank/rw_addr[8]",
+              "slack_ns": -1.30187,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "hold",
+              "engine_check_role": "hold",
+              "startpoint": "wb_adr_i[7]",
+              "endpoint": "u_banks/g_bank_3_u_bank/rw_addr[5]",
+              "slack_ns": 0.04054,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          },
+          "out_of": {
+            "setup": {
+              "status": "ok",
+              "check_type": "setup",
+              "engine_check_role": "setup",
+              "startpoint": "u_banks/g_bank_3_u_bank/r_rdata[7]",
+              "endpoint": "_8250_/D",
+              "slack_ns": 1.48484,
+              "consistent_with_aggregate": null,
+              "reason": null
+            },
+            "hold": {
+              "status": "ok",
+              "check_type": "output_hold",
+              "engine_check_role": "output hold",
+              "startpoint": "u_banks/g_bank_3_u_bank/rw_rdata[0]",
+              "endpoint": "wb_dat_o[0]",
+              "slack_ns": 0.47022,
+              "consistent_with_aggregate": null,
+              "reason": null
+            }
+          }
+        }
+      },
+      "spef_annotation": null,
+      "electrical_checks": null,
+      "clock_propagation": null,
+      "sdf": null,
+      "deck": {
+        "name": "asap7sc7p5t_28__RVT_FF",
+        "content_hash": "sha256:69b907a82eb511f2d74a7d58d4282211f04cd8fe17455736f8249800e763e522",
+        "released": false,
+        "path": {
+          "path": null,
+          "scope": "external"
+        }
+      }
+    }
+  ],
+  "sdc_drift": {
+    "path": {
+      "path": "layout/flow/sta-work/sta-inputs/sta-constraints.sdc",
+      "scope": "repo",
+      "content_hash": "sha256:8eeb56c5b6f2d766806779735930663945ac12e95ffe6f8b473dd0419fe95310"
+    },
+    "mismatches": [],
+    "unchecked": [],
+    "status": "match"
+  }
+}

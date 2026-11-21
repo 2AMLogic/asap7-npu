@@ -1,0 +1,42 @@
+{
+  "schema": "npu-macro-lib-params/1",
+  "macro": "npu_sram_bank",
+  "depth_words": 1024,
+  "word_bits": 32,
+  "area_um2": 1495.502,
+  "corners": {
+    "SS": { "suffix": "ss", "nom_voltage": 0.63, "nom_temperature": 100 },
+    "TT": { "suffix": "tt", "nom_voltage": 0.7, "nom_temperature": 25 },
+    "FF": { "suffix": "ff", "nom_voltage": 0.77, "nom_temperature": 0 }
+  },
+  "rule": {
+    "name": "lib-anchored-placeholder-v1",
+    "statement": "Every timing number is a placeholder, never a memory measurement. Each corner's numbers derive from one committed anchor delay (BUFx4_ASAP7_75t_R cell_rise at table position index_1[3]/index_2[3] of the pinned asap7sc7p5t_28 RVT decks) times the fixed multipliers below: clk->q x10 (a placeholder read path of decode + sense + mux + out-drive, ten buffer stages at the library's own speed scale), setup x1, hold x0.2, min_pulse_width x2, max_transition x4, output transition x3. minimum_period = clk->q + setup. Pin capacitances and the output max_capacitance are corner-invariant placeholders. The anchors differ per corner, so the macro tracks the standard-cell library it is timed beside. This mirrors by reference what the origin's analytical macro corners are (sky130-npu#159: algebraic factors on a baseline, not a re-characterisation).",
+    "anchor": {
+      "cell": "BUFx4_ASAP7_75t_R",
+      "group": "INVBUF_RVT",
+      "table": "cell_rise",
+      "index_1_pos": 3,
+      "index_2_pos": 3,
+      "index_1_note": "input transition, 40 ps at position 3 (library time_unit is 1ps)",
+      "index_2_note": "output load, 23.04 fF at position 3 (library capacitive_load_unit is 1ff)",
+      "library_commit": "f970bd3c3292b79ae4d022a3ec80533534614066",
+      "tt_ns": 0.057837,
+      "ss_ns": 0.081939,
+      "ff_ns": 0.043107,
+      "derived_ratios": { "k_ss_vs_tt": 1.41673, "k_ff_vs_tt": 0.74532 },
+      "read_date": "2026-11-21"
+    },
+    "multipliers": {
+      "tco": 10,
+      "setup": 1,
+      "hold": 0.2,
+      "min_pulse_width": 2,
+      "max_transition": 4,
+      "transition": 3
+    },
+    "pin_capacitance_pf": { "input": 0.01, "clk": 0.02 },
+    "output_max_capacitance_pf": 0.5,
+    "corner_invariant": ["pin_capacitance_pf", "output_max_capacitance_pf", "area_um2"]
+  }
+}

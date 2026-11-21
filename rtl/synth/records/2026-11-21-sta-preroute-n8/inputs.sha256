@@ -1,0 +1,8 @@
+5ef7177e3fcfe631a64c7197725cc5e2c891bc7a368de33e3b8ec37e53ebf372  sta-request.json
+029e386dc49369ac7ae33fdbbb56c7dd0d30683fcd8f1fdb646b727442adffad  npu_top_sta_in.v
+e976057143f5c2c20b5b4f7d4262e42b2e1d057d2be9b420cd0432b1f36384cc  ../../../../layout/macros/npu_sram_bank.lef
+feb617c707e56fb74906c0216639549f99f999ce99c9838a7949ff47cae39cbe  ../../../../layout/macros/npu_sram_bank_ss.lib
+352225a9e17653f852f4604035263a73198d5b07c1cbbf8f4b38288ab6be4f11  ../../../../layout/macros/npu_sram_bank_tt.lib
+2fbe25e3455f29ff5828d053ebc0562133cc1a15ea18ce81614c466d0b06e9c1  ../../../../layout/macros/npu_sram_bank_ff.lib
+8eeb56c5b6f2d766806779735930663945ac12e95ffe6f8b473dd0419fe95310  ../../../../layout/flow/sta-constraints.sdc
+ec783d565f0c770890e83c698d34d9edf00ee472269ad954fd5380cf7724330c  ../../../../rtl/synth/records/2026-10-27-asap7-n8/npu_top_synth.v

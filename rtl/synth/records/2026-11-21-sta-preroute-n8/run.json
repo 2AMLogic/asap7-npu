@@ -1,0 +1,21 @@
+{
+  "corners_requested": [
+    "RVT_SS",
+    "RVT_TT",
+    "RVT_FF"
+  ],
+  "ended_utc": "2026-11-21T02:07:03Z",
+  "klt_exit_code": 0,
+  "klt_version": "klt 0.9.3.dev2575+g6bd18bbc8637",
+  "loadavg_after": "7.98 10.27 12.13",
+  "loadavg_before": "9.36 11.07 12.52",
+  "openroad_threads": 2,
+  "openroad_version": "26Q3-1510-g6cb3f2b704",
+  "outcome": "finished",
+  "peak_rss_kib": 336852,
+  "record_id": "2026-11-21-sta-preroute-n8",
+  "schema": "sta-preroute-record/1",
+  "started_utc": "2026-11-21T02:05:56Z",
+  "synth_record": "rtl/synth/records/2026-10-27-asap7-n8",
+  "wall_seconds": 66.39
+}
