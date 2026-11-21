@@ -80,8 +80,8 @@ there is no fabrication step.** **Decisions 0001-0004 are not ratified by
 ```
 spec/          ratified spec + decision records, including the PDK bring-up
 rtl/           top-level wrapper; stamped copies from sky130-npu under rtl/common/
-verification/  stamped golden model + testbenches, run records
-layout/        GDS + DRC/LVS reports + STA reports + tool runtime records
+verification/  placeholder for the sky130-npu verification harness and golden model
+layout/        OpenROAD place-and-route flow and abstract SRAM macro LEF
 manifests/     klt signoff block manifest + its graded report (CI keeps it current)
 ```
 
