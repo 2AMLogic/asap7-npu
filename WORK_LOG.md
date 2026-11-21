@@ -2,6 +2,13 @@
 
 Chronological record of merged PRs and closed issues. Maintained by the Guide role.
 
+### 2026-11-21
+
+- **Issue #80** (closed): T1 item 5 groundwork: Liberty view of npu_sram_bank at SS/TT/FF and a multi-corner klt sta bring-up on the synthesized netlist
+- **PR #88**: feat(sta): placeholder macro Liberty at SS/TT/FF and a pre-route multi-corner klt sta bring-up
+- **Issue #85** (closed): Guide docs PRs that edit README.md leave manifests/attestations/item-10.json stale and red the signoff gate
+- **PR #86**: docs: add item-10 re-attest rule for inventoried hygiene files to agent entry points
+
 ### 2026-11-14
 
 - **PR #75**: docs: drop duplicate item 6 row from README Reproduce table
