@@ -24,6 +24,11 @@ What is pinned, and why each case exists:
 5. nom_voltage / nom_temperature equal the spec/npu.md PVT rows, and the FF
    view's header names the SIMPLE_RVT_FF anomaly context (the macro view is a
    placeholder at every corner; the anomaly concerns the standard-cell deck).
+6. Every view's cell area equals the committed LEF abstract's SIZE product,
+   computed here from the LEF independently of the generator (issue #89: the
+   area was once an unsourced literal matching neither the LEF footprint nor
+   decision 0002's rule, and nothing caught it). The parameter table carries
+   no independent area literal to drift back to.
 
 No PDK, tool or network is touched: the anchors are committed constants, and
 the generator is pure Python over the parameter table.
@@ -120,6 +125,18 @@ for corner, path in LIBS.items():
 ff_head = "\n".join(open(LIBS["FF"]).read().splitlines()[:20])
 check("FF view header names the SIMPLE_RVT_FF anomaly context",
       "SIMPLE_RVT_FF" in ff_head, ff_head)
+
+# 6. the cell area is the LEF footprint product at every corner, computed
+#    here from the LEF itself, independent of the generator's derivation
+m = re.search(r"SIZE ([\d.]+) BY ([\d.]+) ;", open(LEF).read())
+lef_area = float(m.group(1)) * float(m.group(2))
+check("macro-lib-params.json carries no independent area literal",
+      "area_um2" not in PARAMS, "area_um2 present; the area must derive from the LEF SIZE")
+for corner, path in LIBS.items():
+    text = open(path).read()
+    area = float(re.search(r"^\s+area : ([\d.]+) ;", text, re.M).group(1))
+    check(f"{os.path.basename(path)} area equals the LEF SIZE product",
+          abs(area - lef_area) <= 5e-5, f"{area} vs LEF {m.group(1)} x {m.group(2)} = {lef_area}")
 
 if failures:
     print(f"{len(failures)} failure(s): {failures}")

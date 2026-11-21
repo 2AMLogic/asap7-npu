@@ -7,6 +7,9 @@
  * (clk->q x10, setup x1, hold x0.2, min_pulse_width x2, max_transition x4, output transition x3).
  * This is NOT a memory measurement: the macro has no bitcell and was never
  * characterised (spec/npu.md "On-chip memory", decision 0002).
+ * Cell area 1497.0015 um^2 is the LEF abstract footprint product
+ * (SIZE 29.970 BY 49.950, layout/macros/npu_sram_bank.lef);
+ * corner-invariant, like the pin capacitances.
  * FF is a provisional corner: the standard-cell deck's SIMPLE_RVT_FF
  * header anomaly (0.7 V / 25 C header in a 0.77 V / 0 C corner,
  * spec/npu.md PVT corners) makes any FF-corner hold result provisional;
@@ -38,7 +41,7 @@ library (npu_sram_bank_ff) {
   type (B10) { base_type : array ; data_type : bit ; bit_width : 10 ; bit_from : 9 ; bit_to : 0 ; }
   type (B32) { base_type : array ; data_type : bit ; bit_width : 32 ; bit_from : 31 ; bit_to : 0 ; }
   cell (npu_sram_bank) {
-    area : 1495.502 ;
+    area : 1497.0015 ;
     pin (clk) {
       direction : input ;
       clock : true ;
