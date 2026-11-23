@@ -8,7 +8,10 @@ OUT_DIR defaults to layout/macros, where the committed views live; the
 pre-route STA runner regenerates into a scratch dir and requires the bytes to
 match, the same freshness gate run.sh applies to the LEF. The output is
 deterministic: no timestamps, everything derives from
-layout/flow/macro-lib-params.json.
+layout/flow/macro-lib-params.json -- except the cell area, which the generator
+reads from the committed LEF abstract's SIZE (width x height,
+layout/macros/npu_sram_bank.lef), so the Liberty area mirrors the LEF
+footprint exactly and the two views cannot drift (issue #89).
 
 RULE lib-anchored-placeholder-v1 (stated once here, in the parameter table,
 and in every generated file's header): the macro has no bitcell and was never
@@ -35,10 +38,12 @@ against the same edge, min_pulse_width on clk.
 """
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PARAMS = os.path.join(HERE, "macro-lib-params.json")
+LEF = os.path.join(HERE, "..", "macros", "npu_sram_bank.lef")
 
 DEPTH_BITS = 10          # $clog2(1024)
 inputs = (["clk", "rw_en"] + [f"rw_we[{i}]" for i in range(4)]
@@ -48,6 +53,21 @@ inputs = (["clk", "rw_en"] + [f"rw_we[{i}]" for i in range(4)]
 outputs = [f"rw_rdata[{i}]" for i in range(32)] + [f"r_rdata[{i}]" for i in range(32)]
 
 RULE_NAME = "lib-anchored-placeholder-v1"
+
+
+def lef_footprint():
+    """The committed LEF abstract's SIZE, as (width, height, area).
+
+    The cell area of every Liberty view is this footprint product, so the
+    Liberty area and the LEF abstract cannot drift apart (issue #89; the
+    area was once an unsourced literal matching no source). Resolved
+    relative to the generator, not the output directory, so regenerating
+    into a scratch dir reads the same committed LEF.
+    """
+    m = re.search(r"SIZE ([\d.]+) BY ([\d.]+) ;", open(LEF).read())
+    if not m:
+        sys.exit(f"gen-macro-lib.py: no SIZE statement found in {LEF}")
+    return m.group(1), m.group(2), float(m.group(1)) * float(m.group(2))
 
 
 def fmt(v):
@@ -61,6 +81,7 @@ def main():
     a = rule["anchor"]
     m = rule["multipliers"]
     anchors = {"SS": a["ss_ns"], "TT": a["tt_ns"], "FF": a["ff_ns"]}
+    lef_w, lef_h, area = lef_footprint()
 
     for corner, c in p["corners"].items():
         anchor = anchors[corner]
@@ -91,6 +112,9 @@ def main():
           f" output transition x{m['transition']}).")
         w(" * This is NOT a memory measurement: the macro has no bitcell and was never")
         w(" * characterised (spec/npu.md \"On-chip memory\", decision 0002).")
+        w(f" * Cell area {area:.4f} um^2 is the LEF abstract footprint product")
+        w(f" * (SIZE {lef_w} BY {lef_h}, layout/macros/npu_sram_bank.lef);")
+        w(" * corner-invariant, like the pin capacitances.")
         if corner == "FF":
             w(" * FF is a provisional corner: the standard-cell deck's SIMPLE_RVT_FF")
             w(" * header anomaly (0.7 V / 25 C header in a 0.77 V / 0 C corner,")
@@ -123,7 +147,7 @@ def main():
             w(f"  type ({name}) {{ base_type : array ; data_type : bit ;"
               f" bit_width : {width} ; bit_from : {width - 1} ; bit_to : 0 ; }}")
         w("  cell (npu_sram_bank) {")
-        w(f"    area : {p['area_um2']:.3f} ;")
+        w(f"    area : {area:.4f} ;")
         w("    pin (clk) {")
         w("      direction : input ;")
         w("      clock : true ;")
