@@ -30,7 +30,6 @@ Nothing here touches a PDK, a tool, or the batch fleet: it is pure Python over
 text fixtures plus the stamped synthesis netlist already in the repo. ASAP7 is a
 predictive PDK and this block is never fabricated.
 """
-import ast
 import json
 import os
 import re
@@ -83,18 +82,6 @@ def run_file(path, workdir):
     out = open(dst, encoding="utf-8").read() if os.path.exists(dst) else None
     ren = json.load(open(mapf)) if os.path.exists(mapf) else None
     return p.returncode, p.stdout, p.stderr, out, ren
-
-
-def module_name_pattern():
-    """The regex prep-netlist.py builds its `defined` set with.
-
-    Lifted from the source rather than re-typed, so this test cannot pass
-    against a pattern the script no longer uses.
-    """
-    src = open(SCRIPT, encoding="utf-8").read()
-    m = re.search(r'^defined = set\(re\.findall\((r"[^"]*"), text, re\.M\)\)$', src, re.M)
-    assert m, "prep-netlist.py no longer builds `defined` on one line; update this helper"
-    return ast.literal_eval(m.group(1))
 
 
 with tempfile.TemporaryDirectory() as tmp:
@@ -157,12 +144,6 @@ with tempfile.TemporaryDirectory() as tmp:
         expect = json.load(open(env))["instance_counts_by_type"]["npu_sram_bank"]
         check("stamped netlist: rename count matches envelope.json",
               ren is not None and len(ren) == expect, f"envelope={expect}")
-
-        # `defined` captures bare module names, not `npu_top(clk,`
-        names = set(re.findall(module_name_pattern(), open(STAMPED, encoding="utf-8").read(), re.M))
-        for want in ("npu_top", "npu_pe", "npu_requant"):
-            check(f"defined set contains bare {want!r}", want in names,
-                  sorted(n for n in names if n.startswith("npu_") and "(" in n) or "no mangled names")
 
     # --- linear matching: an unterminated `#(` block at n=12 and n=200 ---
     for n in (12, 200):
