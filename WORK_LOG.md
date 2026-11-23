@@ -2,6 +2,17 @@
 
 Chronological record of merged PRs and closed issues. Maintained by the Guide role.
 
+### 2026-11-23
+
+- **PR #93**: test: drop the source-parsing helper from test-prep-netlist
+- **PR #92**: fix(flow): derive macro Liberty cell area from the LEF SIZE footprint
+- **Issue #89** (closed): macro Liberty area_um2 (1495.502) has no named source and matches neither the LEF footprint nor decision 0002's rule
+- **Issue #87** (closed): Remove the source-parsing helper from the prep-netlist regression test
+
+### 2026-11-22
+
+- **Issue #90** (closed): sta-preroute.sh has never run from a clean clone: the fresh-PDK_ROOT leg of the documented one-command path is unexercised
+
 ### 2026-11-21
 
 - **Issue #80** (closed): T1 item 5 groundwork: Liberty view of npu_sram_bank at SS/TT/FF and a multi-corner klt sta bring-up on the synthesized netlist
