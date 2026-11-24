@@ -2,6 +2,11 @@
 
 Chronological record of merged PRs and closed issues. Maintained by the Guide role.
 
+### 2026-11-24
+
+- **PR #94**: chore: drop dangling worktree:return script from package.json
+- **Issue #58** (closed): Remove the dangling worktree:return script from the root package.json
+
 ### 2026-11-23
 
 - **PR #93**: test: drop the source-parsing helper from test-prep-netlist
